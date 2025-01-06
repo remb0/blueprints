@@ -2,6 +2,7 @@ blueprint:
   name: Different_switches_zigbee2mqtt
   author: remb0
   description: >
+     <summary>Expand/collapse</summary>
    Control anything you want with Opple or Aqara switches like WXCJKG13LM 
    event_types: single_left, single_right, single_both, double_left, double_right, double_both, hold_left, hold_right, hold_both 
    Ikea buttons: event_types: on, off, brightness_move_up, brightness_move_down, brightness_stop 
@@ -34,6 +35,7 @@ blueprint:
     Ikea_sensor:
       name: Ikea sensor
       icon: mdi:cog
+      collapsed: false
       input:
         aan:
           name: Ikea On button
@@ -51,6 +53,7 @@ blueprint:
       name: Single aqara rounded button
       icon: mdi:button
       description: Aqara sensor to use
+      collapsed: false      
       input:
         single:
           name: Single button
@@ -59,7 +62,8 @@ blueprint:
           selector:
             action: {}            
     Aqara_switches:
-          name: Aqara rocker switches
+      name: Aqara rocker switches
+      collapsed: false          
       icon: mdi:button
       input:
         single_left:
