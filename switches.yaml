@@ -229,7 +229,7 @@ blueprint:
       default: []
       selector:
         action: {}
-  source_url: https://github.com/remb0/blueprints/blob/main/switches.yaml
+  source_url: https://github.com/remb0/blueprints
 mode: parallel
 max_exceeded: silent
 trigger:
