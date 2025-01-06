@@ -1,5 +1,6 @@
 blueprint:
-  name: Different switches via zigbee2mqtt
+  name: Different_switches_zigbee2mqtt
+  author: remb0
   description: "Control anything you want with Opple or Aqara switches like WXCJKG13LM\n
     \  event_types: single_left, single_right, single_both, double_left, double_right, double_both, hold_left, hold_right, hold_both \n
     \  Ikea buttons: event_types: on, off, brightness_move_up, brightness_move_down, brightness_stop /n
