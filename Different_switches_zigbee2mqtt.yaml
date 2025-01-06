@@ -34,7 +34,6 @@ blueprint:
     Ikea_sensor:
       name: Ikea sensor
       icon: mdi:cog
-      description: Ikea sensor to use *
       input:
         aan:
           name: Ikea On button
@@ -49,203 +48,216 @@ blueprint:
           selector:
             action: {}           
     single:
-      name: Single button
-      description: Action to after click (ronde aqara buttons)
-      default: []
-      selector:
-        action: {}            
-    single_left:
-      name: Left button
-      description: Action to run after single Left click
-      default: []
-      selector:
-        action: {}      
-    single_right:
-      name: Right button
-      description: Action to run after single right click
-      default: []
-      selector:
-        action: {}          
-    button_1_single:
-      name: Button 1 - Single Click
-      description: Action to run after single click of button 1
-      default: []
-      selector:
-        action: {}
-    button_1_double:
-      name: Button 1 - Double click
-      description: Action to run after double click of button 1
-      default: []
-      selector:
-        action: {}
-    button_1_triple:
-      name: Button 1 - Triple Click
-      description: Action to run after triple click of button 1
-      default: []
-      selector:
-        action: {}
-    button_1_hold:
-      name: Button 1 - Hold Down
-      description: Action to run on holding down button 1
-      default: []
-      selector:
-        action: {}
-    button_1_release:
-      name: Button 1 - Release after Hold
-      description: Action to run after releasing button 1
-      default: []
-      selector:
-        action: {}
-    button_2_single:
-      name: Button 2 - Single Click
-      description: Action to run after single click of button 2
-      default: []
-      selector:
-        action: {}
-    button_2_double:
-      name: Button 2 - Double click
-      description: Action to run after double click of button 2
-      default: []
-      selector:
-        action: {}
-    button_2_triple:
-      name: Button 2 - Triple Click
-      description: Action to run after triple click of button 2
-      default: []
-      selector:
-        action: {}
-    button_2_hold:
-      name: Button 2 - Hold Down
-      description: Action to run on holding down button 2
-      default: []
-      selector:
-        action: {}
-    button_2_release:
-      name: Button 2 - Release after Hold
-      description: Action to run after releasing button 2
-      default: []
-      selector:
-        action: {}
-    button_3_single:
-      name: Button 3 - Single Click
-      description: Action to run after single click of button 3
-      default: []
-      selector:
-        action: {}
-    button_3_double:
-      name: Button 3 - Double click
-      description: Action to run after double click of button 3
-      default: []
-      selector:
-        action: {}
-    button_3_triple:
-      name: Button 3 - Triple Click
-      description: Action to run after triple click of button 3
-      default: []
-      selector:
-        action: {}
-    button_3_hold:
-      name: Button 3 - Hold Down
-      description: Action to run on holding down button 3
-      default: []
-      selector:
-        action: {}
-    button_3_release:
-      name: Button 3 - Release after Hold
-      description: Action to run after releasing button 3
-      default: []
-      selector:
-        action: {}
-    button_4_single:
-      name: Button 4 - Single Click
-      description: Action to run after single click of button 4
-      default: []
-      selector:
-        action: {}
-    button_4_double:
-      name: Button 4 - Double click
-      description: Action to run after double click of button 4
-      default: []
-      selector:
-        action: {}
-    button_4_triple:
-      name: Button 4 - Triple Click
-      description: Action to run after triple click of button 4
-      default: []
-      selector:
-        action: {}
-    button_4_hold:
-      name: Button 4 - Hold Down
-      description: Action to run on holding down button 4
-      default: []
-      selector:
-        action: {}
-    button_4_release:
-      name: Button 4 - Release after Hold
-      description: Action to run after releasing button 4
-      default: []
-      selector:
-        action: {}
-    button_5_single:
-      name: Button 5 - Single Click
-      description: Action to run after single click of button 5
-      default: []
-      selector:
-        action: {}
-    button_5_double:
-      name: Button 5 - Double click
-      description: Action to run after double click of button 5
-      default: []
-      selector:
-        action: {}
-    button_5_triple:
-      name: Button 5 - Triple Click
-      description: Action to run after triple click of button 5
-      default: []
-      selector:
-        action: {}
-    button_5_hold:
-      name: Button 5 - Hold Down
-      description: Action to run on holding down button 5
-      default: []
-      selector:
-        action: {}
-    button_5_release:
-      name: Button 5 - Release after Hold
-      description: Action to run after releasing button 5
-      default: []
-      selector:
-        action: {}
-    button_6_single:
-      name: Button 6 - Single Click
-      description: Action to run after single click of button 6
-      default: []
-      selector:
-        action: {}
-    button_6_double:
-      name: Button 6 - Double click
-      description: Action to run after double click of button 6
-      default: []
-      selector:
-        action: {}
-    button_6_triple:
-      name: Button 6 - Triple Click
-      description: Action to run after triple click of button 6
-      default: []
-      selector:
-        action: {}
-    button_6_hold:
-      name: Button 6 - Hold Down
-      description: Action to run on holding down button 6
-      default: []
-      selector:
-        action: {}
-    button_6_release:
-      name: Button 6 - Release after Hold
-      description: Action to run after releasing button 6
-      default: []
-      selector:
-        action: {}
+      name: Single aqara rounded button
+      icon: mdi:button
+      description: Aqara sensor to use
+      input:
+        single:
+          name: Single button
+          description: Action to after click (ronde aqara buttons)
+          default: []
+          selector:
+            action: {}            
+    Aqara_switches:
+          name: Ikea sensor
+      icon: mdi:cog
+      input:
+        single_left:
+          name: Left button
+          description: Action to run after single Left click
+          default: []
+          selector:
+            action: {}      
+        single_right:
+          name: Right button
+          description: Action to run after single right click
+          default: []
+          selector:
+            action: {}          
+    Opple_switches:
+      name: Opple switches
+      icon: mdi:buttons
+      input:    
+        button_1_single:
+          name: Button 1 - Single Click
+          description: Action to run after single click of button 1
+          default: []
+          selector:
+            action: {}
+        button_1_double:
+          name: Button 1 - Double click
+          description: Action to run after double click of button 1
+          default: []
+          selector:
+            action: {}
+        button_1_triple:
+          name: Button 1 - Triple Click
+          description: Action to run after triple click of button 1
+          default: []
+          selector:
+            action: {}
+        button_1_hold:
+          name: Button 1 - Hold Down
+          description: Action to run on holding down button 1
+          default: []
+          selector:
+            action: {}
+        button_1_release:
+          name: Button 1 - Release after Hold
+          description: Action to run after releasing button 1
+          default: []
+          selector:
+            action: {}
+        button_2_single:
+          name: Button 2 - Single Click
+          description: Action to run after single click of button 2
+          default: []
+          selector:
+            action: {}
+        button_2_double:
+          name: Button 2 - Double click
+          description: Action to run after double click of button 2
+          default: []
+          selector:
+            action: {}
+        button_2_triple:
+          name: Button 2 - Triple Click
+          description: Action to run after triple click of button 2
+          default: []
+          selector:
+            action: {}
+        button_2_hold:
+          name: Button 2 - Hold Down
+          description: Action to run on holding down button 2
+          default: []
+          selector:
+            action: {}
+        button_2_release:
+          name: Button 2 - Release after Hold
+          description: Action to run after releasing button 2
+          default: []
+          selector:
+            action: {}
+        button_3_single:
+          name: Button 3 - Single Click
+          description: Action to run after single click of button 3
+          default: []
+          selector:
+            action: {}
+        button_3_double:
+          name: Button 3 - Double click
+          description: Action to run after double click of button 3
+          default: []
+          selector:
+            action: {}
+        button_3_triple:
+          name: Button 3 - Triple Click
+          description: Action to run after triple click of button 3
+          default: []
+          selector:
+            action: {}
+        button_3_hold:
+          name: Button 3 - Hold Down
+          description: Action to run on holding down button 3
+          default: []
+          selector:
+            action: {}
+        button_3_release:
+          name: Button 3 - Release after Hold
+          description: Action to run after releasing button 3
+          default: []
+          selector:
+            action: {}
+        button_4_single:
+          name: Button 4 - Single Click
+          description: Action to run after single click of button 4
+          default: []
+          selector:
+            action: {}
+        button_4_double:
+          name: Button 4 - Double click
+          description: Action to run after double click of button 4
+          default: []
+          selector:
+            action: {}
+        button_4_triple:
+          name: Button 4 - Triple Click
+          description: Action to run after triple click of button 4
+          default: []
+          selector:
+            action: {}
+        button_4_hold:
+          name: Button 4 - Hold Down
+          description: Action to run on holding down button 4
+          default: []
+          selector:
+            action: {}
+        button_4_release:
+          name: Button 4 - Release after Hold
+          description: Action to run after releasing button 4
+          default: []
+          selector:
+            action: {}
+        button_5_single:
+          name: Button 5 - Single Click
+          description: Action to run after single click of button 5
+          default: []
+          selector:
+            action: {}
+        button_5_double:
+          name: Button 5 - Double click
+          description: Action to run after double click of button 5
+          default: []
+          selector:
+            action: {}
+        button_5_triple:
+          name: Button 5 - Triple Click
+          description: Action to run after triple click of button 5
+          default: []
+          selector:
+            action: {}
+        button_5_hold:
+          name: Button 5 - Hold Down
+          description: Action to run on holding down button 5
+          default: []
+          selector:
+            action: {}
+        button_5_release:
+          name: Button 5 - Release after Hold
+          description: Action to run after releasing button 5
+          default: []
+          selector:
+            action: {}
+        button_6_single:
+          name: Button 6 - Single Click
+          description: Action to run after single click of button 6
+          default: []
+          selector:
+            action: {}
+        button_6_double:
+          name: Button 6 - Double click
+          description: Action to run after double click of button 6
+          default: []
+          selector:
+            action: {}
+        button_6_triple:
+          name: Button 6 - Triple Click
+          description: Action to run after triple click of button 6
+          default: []
+          selector:
+            action: {}
+        button_6_hold:
+          name: Button 6 - Hold Down
+          description: Action to run on holding down button 6
+          default: []
+          selector:
+            action: {}
+        button_6_release:
+          name: Button 6 - Release after Hold
+          description: Action to run after releasing button 6
+          default: []
+          selector:
+            action: {}
   source_url: https://github.com/remb0/blueprints/tree/main/
 mode: parallel
 max_exceeded: silent
