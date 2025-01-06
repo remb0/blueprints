@@ -7,7 +7,7 @@ blueprint:
     \  Each band button has single, double, triple, hold & release..\n   
     \ \n     - https://raw.githubusercontent.com/remb0/blueprints/refs/heads/main/switches.yaml \n
     \    Switch Button Layout (little dot lower left). Switch could be rotated like
-    you want:\n       .---.---.---.\n       | 2 | 4 | 6 |\n       |   |   |   |\n
+    \ you want:\n       .---.---.---.\n       | 2 | 4 | 6 |\n       |   |   |   |\n
     \      |.1 | 3 | 5 |\n       '*--'---'---'\n "
   domain: automation
   input:
@@ -20,13 +20,13 @@ blueprint:
           - event
           integration: mqtt
           multiple: false
-    on:
+    aan:
       name: Ikea On button
       description: Action to after click on
       default: []
       selector:
         action: {}   
-    off:
+    uit:
       name: Ikea Off button
       description: Action to after click off
       default: []
@@ -238,7 +238,7 @@ trigger:
   entity_id: !input aqara_switch
 condition:
   condition: template
-  value_template: '{{ trigger.to_state.attributes.event_type in ( 
+  value_template: '{{ trigger.to_state.attributes.event_type in (
     ''on'',''off'',  
     ''single'',
     ''single_left'',''single_right'',
@@ -257,19 +257,19 @@ action:
 - choose:
   - conditions:
     - '{{ command == ''on'' }}'
-    sequence: !input on  
+    sequence: !input aan
   - conditions:
     - '{{ command == ''off'' }}'  
-    sequence: !input off   
+    sequence: !input uit
   - conditions:
     - '{{ command == ''single'' }}'
-    sequence: !input single  
+    sequence: !input single
   - conditions:
     - '{{ command == ''single_left'' }}'
-    sequence: !input single_left  
+    sequence: !input single_left
   - conditions:
     - '{{ command == ''single_right'' }}'
-    sequence: !input single_right  
+    sequence: !input single_right
   - conditions:
     - '{{ command == ''button_1_single'' }}'
     sequence: !input button_1_single
