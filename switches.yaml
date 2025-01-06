@@ -256,8 +256,10 @@ action:
 - choose:
   - conditions:
     - '{{ command == ''on'' }}'
+    sequence: !input on  
   - conditions:
-    - '{{ command == ''off'' }}'    
+    - '{{ command == ''off'' }}'  
+    sequence: !input off   
   - conditions:
     - '{{ command == ''single'' }}'
     sequence: !input single  
