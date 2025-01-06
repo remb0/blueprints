@@ -18,6 +18,12 @@ blueprint:
           - event
           integration: mqtt
           multiple: false
+    single:
+      name: Single button
+      description: Action to after click (ronde aqara buttons)
+      default: []
+      selector:
+        action: {}            
     single_left:
       name: Left button
       description: Action to run after single Left click
@@ -219,6 +225,7 @@ trigger:
 condition:
   condition: template
   value_template: '{{ trigger.to_state.attributes.event_type in ( 
+    ''single'',
     ''single_left'',''single_right'',
     ''button_1_single'',
     ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
@@ -233,6 +240,9 @@ action:
 - variables:
     command: '{{ trigger.to_state.attributes.event_type }}'
 - choose:
+  - conditions:
+    - '{{ command == ''single'' }}'
+    sequence: !input single  
   - conditions:
     - '{{ command == ''single_left'' }}'
     sequence: !input single_left  
