@@ -262,7 +262,7 @@ blueprint:
           default: []
           selector:
             action: {}
-  source_url: https://github.com/remb0/blueprints/tree/main/
+source_url: https://github.com/remb0/blueprints/tree/main/
 mode: parallel
 max_exceeded: silent
 trigger:
