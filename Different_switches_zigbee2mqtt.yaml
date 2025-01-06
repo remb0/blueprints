@@ -1,5 +1,6 @@
 blueprint:
   name: Different_switches_zigbee2mqtt
+  source_url: https://github.com/remb0/blueprints/tree/main/
   author: remb0
   description: >-
     <div>
@@ -22,7 +23,8 @@ blueprint:
       '---'---'---'
     
     ***NOTE:*** Use zigbee2MQTT > 2025 
-    ---  
+    ---
+      <br>    
   domain: automation
   homeassistant:
     min_version: 2024.12.0
@@ -267,7 +269,6 @@ blueprint:
           default: []
           selector:
             action: {}
-  source_url: https://github.com/remb0/blueprints/tree/main/
 mode: parallel
 max_exceeded: silent
 trigger:
