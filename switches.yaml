@@ -1,7 +1,8 @@
 blueprint:
   name: Aqara switches via zigbee2mqtt
   description: "Control anything you want with Opple or Aqara switches like WXCJKG13LM\n
-    \   Each band button has single, double, triple, hold & release.\n   
+  \  event_types: single_left, single_right, single_both, double_left, double_right, double_both, hold_left, hold_right, hold_both \n
+    \   Each band button has single, double, triple, hold & release..\n   
     \ \n     - https://raw.githubusercontent.com/remb0/blueprints/refs/heads/main/switches.yaml
     \    Switch Button Layout (little dot lower left). Switch could be rotated like
     you want:\n       .---.---.---.\n       | 2 | 4 | 6 |\n       |   |   |   |\n
