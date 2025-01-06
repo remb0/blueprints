@@ -22,7 +22,7 @@ blueprint:
       '---'---'---'
     
     ***NOTE:*** Use zigbee2MQTT > 2025 
-  ---  
+    ---  
   domain: automation
   homeassistant:
     min_version: 2024.12.0
