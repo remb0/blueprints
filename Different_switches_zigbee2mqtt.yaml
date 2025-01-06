@@ -35,7 +35,7 @@ blueprint:
     Ikea_sensor:
       name: Ikea sensor
       icon: mdi:cog
-      collapsed: false
+      collapsed: true
       input:
         aan:
           name: Ikea On button
