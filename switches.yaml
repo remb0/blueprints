@@ -2,7 +2,7 @@ blueprint:
   name: Aqara switches via zigbee2mqtt
   description: "Control anything you want with Aqara switches like WXCJKG13LM\n
     \   Each band button has single, double, triple, hold & release.\n   
-    \ \n     - @calcubot5000 cleanup https://community.home-assistant.io/t/zigbee2mqtt-z2m-aqara-opple-6-button-remote-3-bands-wxcjkg13lm/391475/7\n\n
+    \ \n     - https://raw.githubusercontent.com/remb0/blueprints/refs/heads/main/switches.yaml
     \    Switch Button Layout (little dot lower left). Switch could be rotated like
     you want:\n       .---.---.---.\n       | 2 | 4 | 6 |\n       |   |   |   |\n
     \      |.1 | 3 | 5 |\n       '*--'---'---'\n "
@@ -18,8 +18,14 @@ blueprint:
           integration: mqtt
           multiple: false
     single_left:
-      name: Button 1 - Single Left Click
-      description: Action to run after single Left click of button 1
+      name: Left button
+      description: Action to run after single Left click
+      default: []
+      selector:
+        action: {}      
+    single_right:
+      name: Right button
+      description: Action to run after single right click
       default: []
       selector:
         action: {}          
@@ -211,7 +217,8 @@ trigger:
   entity_id: !input aqara_switch
 condition:
   condition: template
-  value_template: '{{ trigger.to_state.attributes.event_type in ( ''single_left'',
+  value_template: '{{ trigger.to_state.attributes.event_type in ( 
+    ''single_left'',''single_right'',
     ''button_1_single'',
     ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
     ''button_2_single'', ''button_2_double'', ''button_2_triple'', ''button_2_hold'',
@@ -227,6 +234,9 @@ action:
 - choose:
   - conditions:
     - '{{ command == ''single_left'' }}'
+    sequence: !input single_left  
+  - conditions:
+    - '{{ command == ''single_right'' }}'
     sequence: !input single_left  
   - conditions:
     - '{{ command == ''button_1_single'' }}'
