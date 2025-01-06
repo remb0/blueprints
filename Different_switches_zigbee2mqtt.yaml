@@ -47,7 +47,7 @@ blueprint:
           default: []
           selector:
             action: {}           
-    single:
+    single_switches:
       name: Single aqara rounded button
       icon: mdi:button
       description: Aqara sensor to use
@@ -59,8 +59,8 @@ blueprint:
           selector:
             action: {}            
     Aqara_switches:
-          name: Ikea sensor
-      icon: mdi:cog
+          name: Aqara rocker switches
+      icon: mdi:button
       input:
         single_left:
           name: Left button
