@@ -53,7 +53,7 @@ blueprint:
       name: Single aqara rounded button
       icon: mdi:button
       description: Aqara sensor to use
-      collapsed: false      
+      collapsed: true      
       input:
         single:
           name: Single button
@@ -63,7 +63,7 @@ blueprint:
             action: {}            
     Aqara_switches:
       name: Aqara rocker switches
-      collapsed: false          
+      collapsed: true          
       icon: mdi:button
       input:
         single_left:
@@ -80,6 +80,7 @@ blueprint:
             action: {}          
     Opple_switches:
       name: Opple switches
+      collapsed: true        
       icon: mdi:buttons
       input:    
         button_1_single:
