@@ -269,7 +269,7 @@ action:
     sequence: !input single_left  
   - conditions:
     - '{{ command == ''single_right'' }}'
-    sequence: !input single_left  
+    sequence: !input single_right  
   - conditions:
     - '{{ command == ''button_1_single'' }}'
     sequence: !input button_1_single
