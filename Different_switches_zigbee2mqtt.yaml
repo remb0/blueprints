@@ -23,6 +23,9 @@ blueprint:
       '---'---'---'
     
     ***NOTE:*** Use zigbee2MQTT > 2025 
+
+    ***Changelog:***
+    added Aqara WXKG07LM for DAVIZINHO (Aqara_switches)
     ---
       <br>    
   domain: automation
@@ -54,7 +57,24 @@ blueprint:
           description: Action to after click off
           default: []
           selector:
-            action: {}           
+            action: {}
+Ikea_sensor:
+      name: Ikea sensor
+      icon: mdi:cog
+      collapsed: true
+      input:
+        aan:
+          name: Ikea On button
+          description: Action to after click on
+          default: []
+          selector:
+            action: {}   
+        uit:
+          name: Ikea Off button
+          description: Action to after click off
+          default: []
+          selector:
+            action: {}
     single_switches:
       name: Single aqara rounded button
       icon: mdi:button
@@ -68,7 +88,7 @@ blueprint:
           selector:
             action: {}            
     Aqara_switches:
-      name: Aqara rocker switches
+      name: Aqara rocker and WXKG07LM switches
       collapsed: true          
       icon: mdi:button
       input:
@@ -83,7 +103,67 @@ blueprint:
           description: Action to run after single right click
           default: []
           selector:
-            action: {}          
+            action: {}
+        hold_left:
+          name: Left button
+          description: Action to run after holding Right
+          default: []
+          selector:
+            action: {} 
+        hold_right:
+          name: Right button
+          description: Action to run after holding Right
+          default: []
+          selector:
+            action: {}      
+        hold_both:
+          name: Hold both buttons
+          description: Action to run after hold both buttons
+          default: []
+          selector:
+            action: {}                                 
+        single_both:
+          name: single both buttons
+          description: Action to run after single both click
+          default: []
+          selector:
+            action: {}   
+        double_left:
+          name: double Left button
+          description: Action to run after double left click
+          default: []
+          selector:
+            action: {} 
+        double_right:
+          name: double Both button
+          description: Action to run after double both click
+          default: []
+          selector:
+            action: {}   
+        double_both:
+          name: Right button
+          description: Action to run after single right click
+          default: []
+          selector:
+            action: {}   
+        single_right:
+          name: Right button
+          description: Action to run after single right click
+          default: []
+          selector:
+            action: {}   
+        single_right:
+          name: Right button
+          description: Action to run after single right click
+          default: []
+          selector:
+            action: {}   
+        single_right:
+          name: Right button
+          description: Action to run after single right click
+          default: []
+          selector:
+            action: {}                                                                             
     Opple_switches:
       name: Opple switches
       collapsed: true        
@@ -279,7 +359,7 @@ condition:
   value_template: '{{ trigger.to_state.attributes.event_type in (
     ''on'',''off'',  
     ''single'',
-    ''single_left'',''single_right'',
+    ''single_left'',''single_right'','single_both'',''double_left'',''double_right'',''double_both'',''hold_left'',''hold_right'',''hold_both'',
     ''button_1_single'',
     ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
     ''button_2_single'', ''button_2_double'', ''button_2_triple'', ''button_2_hold'',
@@ -308,6 +388,27 @@ action:
   - conditions:
     - '{{ command == ''single_right'' }}'
     sequence: !input single_right
+  - conditions:
+    - '{{ command == ''single_both'' }}'
+    sequence: !input single_both
+  - conditions:
+    - '{{ command == ''double_left'' }}'
+    sequence: !input double_left
+  - conditions:
+    - '{{ command == ''double_right'' }}'
+    sequence: !input double_right 
+  - conditions:
+    - '{{ command == ''double_both'' }}'
+    sequence: !input double_both
+  - conditions:
+    - '{{ command == ''hold_left'' }}'
+    sequence: !input hold_left
+  - conditions:
+    - '{{ command == ''hold_right'' }}'
+    sequence: !input hold_right
+  - conditions:
+    - '{{ command == ''hold_both'' }}'
+    sequence: !input hold_both                               
   - conditions:
     - '{{ command == ''button_1_single'' }}'
     sequence: !input button_1_single
