@@ -5,10 +5,9 @@ blueprint:
   description: >-
     <div>
       <h2>🔔 Switches!!</h2>
-      <b>Version 0.9 Beta</b> | 🔗 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Github Link</a> | 💬 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Community Post coming soon</a>
+      <b>Version 0.9 Beta</b> | 🔗 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Github Link</a> | 💬 <a href="https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-opple-ikea/" target="_blank">Community Topic</a>
       </div>
       <br>   
-    <summary>Expand/collapse</summary>
     Control anything you want with Opple or Aqara switches like WXCJKG13LM 
     event_types: single_left, single_right, single_both, double_left, double_right, double_both, hold_left, hold_right, hold_both 
     Ikea buttons: event_types: on, off, brightness_move_up, brightness_move_down, brightness_stop 
