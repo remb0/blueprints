@@ -57,23 +57,6 @@ blueprint:
           default: []
           selector:
             action: {}
-Ikea_sensor:
-      name: Ikea sensor
-      icon: mdi:cog
-      collapsed: true
-      input:
-        aan:
-          name: Ikea On button
-          description: Action to after click on
-          default: []
-          selector:
-            action: {}   
-        uit:
-          name: Ikea Off button
-          description: Action to after click off
-          default: []
-          selector:
-            action: {}
     single_switches:
       name: Single aqara rounded button
       icon: mdi:button
