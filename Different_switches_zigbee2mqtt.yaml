@@ -85,13 +85,13 @@ blueprint:
           selector:
             action: {}
         hold_left:
-          name: Left button
+          name: Hold Left button
           description: Action to run after holding Right
           default: []
           selector:
             action: {} 
         hold_right:
-          name: Right button
+          name: Hold Right button
           description: Action to run after holding Right
           default: []
           selector:
