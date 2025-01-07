@@ -24,8 +24,7 @@ blueprint:
     ***NOTE:*** Use zigbee2MQTT > 2025 
 
     ***Changelog:***
-    added Aqara WXKG07LM for DAVIZINHO (Aqara_switches)
-    ---   
+    added Aqara WXKG07LM for DAVIZINHO (Aqara_switches)  
   domain: automation
   homeassistant:
     min_version: 2024.12.0
@@ -116,13 +115,13 @@ blueprint:
           selector:
             action: {} 
         double_right:
-          name: double Both button
+          name: double Right button
           description: Action to run after double both click
           default: []
           selector:
             action: {}   
         double_both:
-          name: Right button
+          name: double both buttons
           description: Action to run after single right click
           default: []
           selector:
