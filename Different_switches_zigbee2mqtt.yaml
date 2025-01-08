@@ -1,6 +1,6 @@
 blueprint:
   name: Different_switches_zigbee2mqtt
-  source_url: https://github.com/remb0/blueprints/tree/main/
+  source_url: https://github.com/remb0/blueprints/tree/main/Different_switches_zigbee2mqtt.yaml
   author: remb0
   description: >-
     <div>
