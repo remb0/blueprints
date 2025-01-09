@@ -661,86 +661,85 @@ action:
   - conditions:
     - '{{ command == ''button_6_release'' }}'
     sequence: !input button_6_release
-
 #philips
   - conditions:
-      - '{{ command == ''left_press'' }}'
+    - '{{ command == ''left_press'' }}'
     sequence: !input left_press
   - conditions:
-      - '{{ command == ''left_press_release'' }}'
+    - '{{ command == ''left_press_release'' }}'
     sequence: !input left_press_release
   - conditions:
-      - '{{ command == ''right_press'' }}'
+    - '{{ command == ''right_press'' }}'
     sequence: !input right_press
   - conditions:
-      - '{{ command == ''right_press_release'' }}'
+    - '{{ command == ''right_press_release'' }}'
     sequence: !input right_press_release
   - conditions:
-      - '{{ command == ''left_hold'' }}'
+    - '{{ command == ''left_hold'' }}'
     sequence: !input left_hold
   - conditions:
-      - '{{ command == ''left_hold_release'' }}'
+    - '{{ command == ''left_hold_release'' }}'
     sequence: !input left_hold_release
   - conditions:
-      - '{{ command == ''right_hold'' }}'
+    - '{{ command == ''right_hold'' }}'
     sequence: !input right_hold
   - conditions:
-      - '{{ command == ''right_hold_release'' }}'
+    - '{{ command == ''right_hold_release'' }}'
     sequence: !input right_hold_release
   - conditions:
-      - '{{ command == ''toggle'' }}'
+    - '{{ command == ''toggle'' }}'
     sequence: !input toggle
   - conditions:
-      - '{{ command == ''on_press'' }}'
+    - '{{ command == ''on_press'' }}'
     sequence: !input on_press
   - conditions:
-      - '{{ command == ''on_hold'' }}'
+    - '{{ command == ''on_hold'' }}'
     sequence: !input on_hold
   - conditions:
-      - '{{ command == ''on_press_release'' }}'
+      '{{ command == ''on_press_release'' }}'
     sequence: !input on_press_release
   - conditions:
-      - '{{ command == ''on_hold_release'' }}'
+    - '{{ command == ''on_hold_release'' }}'
     sequence: !input on_hold_release
   - conditions:
-      - '{{ command == ''off_press'' }}'
+    -  '{{ command == ''off_press'' }}'
     sequence: !input off_press
   - conditions:
-      - '{{ command == ''off_hold'' }}'
+    - '{{ command == ''off_hold'' }}'
     sequence: !input off_hold
   - conditions:
-      - '{{ command == ''off_press_release'' }}'
+    - '{{ command == ''off_press_release'' }}'
     sequence: !input off_press_release
   - conditions:
-      - '{{ command == ''off_hold_release'' }}'
+    - '{{ command == ''off_hold_release'' }}'
     sequence: !input off_hold_release
   - conditions:
-      - '{{ command == ''up_press'' }}'
+    - '{{ command == ''up_press'' }}'
     sequence: !input up_press
   - conditions:
-      - '{{ command == ''up_hold'' }}'
+    - '{{ command == ''up_hold'' }}'
     sequence: !input up_hold
   - conditions:
-      - '{{ command == ''up_press_release'' }}'
+    - '{{ command == ''up_press_release'' }}'
     sequence: !input up_press_release
   - conditions:
-      - '{{ command == ''up_hold_release'' }}'
+    - '{{ command == ''up_hold_release'' }}'
     sequence: !input up_hold_release
   - conditions:
-      - '{{ command == ''down_press'' }}'
+    - '{{ command == ''down_press'' }}'
     sequence: !input down_press
   - conditions:
-      - '{{ command == ''down_hold'' }}'
+    - '{{ command == ''down_hold'' }}'
     sequence: !input down_hold
   - conditions:
-      - '{{ command == ''down_press_release'' }}'
+    - '{{ command == ''down_press_release'' }}'
     sequence: !input down_press_release
   - conditions:
-      - '{{ command == ''down_hold_release'' }}'
+    - '{{ command == ''down_hold_release'' }}'
     sequence: !input down_hold_release
   - conditions:
-      - '{{ command == ''recall_0'' }}'
+    - '{{ command == ''recall_0'' }}'
     sequence: !input recall_0
   - conditions:
-      - '{{ command == ''recall_1'' }}'
+    - '{{ command == ''recall_1'' }}'
     sequence: !input recall_1
