@@ -422,97 +422,84 @@ blueprint:
           default: []
           selector:
             action: {}
-
         off_hold:
           name: Off Hold
           description: Action for off_hold
           default: []
           selector:
             action: {}
-
         off_press_release:
           name: Off Press Release
           description: Action for off_press_release
           default: []
           selector:
             action: {}
-
         off_hold_release:
           name: Off Hold Release
           description: Action for off_hold_release
           default: []
           selector:
             action: {}
-
         up_press:
           name: Up Press
           description: Action for up_press
           default: []
           selector:
             action: {}
-
         up_hold:
           name: Up Hold
           description: Action for up_hold
           default: []
           selector:
             action: {}
-
         up_press_release:
           name: Up Press Release
           description: Action for up_press_release
           default: []
           selector:
             action: {}
-
         up_hold_release:
           name: Up Hold Release
           description: Action for up_hold_release
           default: []
           selector:
             action: {}
-
         down_press:
           name: Down Press
           description: Action for down_press
           default: []
           selector:
             action: {}
-
         down_hold:
           name: Down Hold
           description: Action for down_hold
           default: []
           selector:
             action: {}
-
         down_press_release:
           name: Down Press Release
           description: Action for down_press_release
           default: []
           selector:
             action: {}
-
         down_hold_release:
           name: Down Hold Release
           description: Action for down_hold_release
           default: []
           selector:
             action: {}
-
         recall_0:
           name: Recall 0
           description: Action for recall_0
           default: []
           selector:
             action: {}
-
-recall_1:
-  name: Recall 1
-  description: Action for recall_1
-  default: []
-  selector:
-    action: {}         
+        recall_1:
+          name: Recall 1
+          description: Action for recall_1
+          default: []
+          selector:
+            action: {}         
     Sample_switches:
       name: Sample switches
       collapsed: true        
