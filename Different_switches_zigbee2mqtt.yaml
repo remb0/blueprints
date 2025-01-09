@@ -1,6 +1,6 @@
 blueprint:
   name: Different_switches_zigbee2mqtt
-  source_url: https://github.com/remb0/blueprints/tree/main/Different_switches_zigbee2mqtt.yaml
+  source_url: https://raw.githubusercontent.com/remb0/blueprints/refs/heads/main/Different_switches_zigbee2mqtt.yaml
   author: remb0
   description: >-
     <div>
@@ -337,19 +337,86 @@ blueprint:
           description: Compatiible with 929003017102, 929002398602, 324131092621
           icon: mdi:cog
           collapsed: true
-          input:
+          input: 
             left_press:
-              name: Philips left_press
-              description: Action to after left press
+              name: Left Press
+              description: Action for left_press
+              default: []
+              selector:
+                action: {}
+            left_press_release:
+              name: Left Press Release
+              description: Action for left_press_release
+              default: []
+              selector:
+                action: {}
+            right_press:
+              name: Right Press
+              description: Action for right_press
+              default: []
+              selector:
+                action: {}
+            right_press_release:
+              name: Right Press Release
+              description: Action for right_press_release
+              default: []
+              selector:
+                action: {}
+            left_hold:
+              name: Left Hold
+              description: Action for left_hold
+              default: []
+              selector:
+                action: {}
+            left_hold_release:
+              name: Left Hold Release
+              description: Action for left_hold_release
+              default: []
+              selector:
+                action: {}
+            right_hold:
+              name: Right Hold
+              description: Action for right_hold
+              default: []
+              selector:
+                action: {}
+            right_hold_release:
+              name: Right Hold Release
+              description: Action for right_hold_release
+              default: []
+              selector:
+                action: {}
+            toggle:
+              name: Toggle
+              description: Action for toggle
+              default: []
+              selector:
+                action: {}
+            on_press:
+              name: On Press
+              description: Action for on_press
+              default: []
+              selector:
+                action: {}
+            on_hold:
+              name: On Hold
+              description: Action for on_hold
+              default: []
+              selector:
+                action: {}
+            on_press_release:
+              name: On Press Release
+              description: Action for on_press_release
+              default: []
+              selector:
+                action: {}
+            on_hold_release:
+              name: On Hold Release
+              description: Action for on_hold_release
               default: []
               selector:
                 action: {}   
-            left_press_release:
-              name: Philips Off button
-              description: Philips left_press_release
-              default: []
-              selector:
-                action: {}          
+         
     Sample_switches:
       name: Sample switches
       collapsed: true        
