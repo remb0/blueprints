@@ -5,7 +5,7 @@ blueprint:
   description: >-
     <div>
       <h2>🔔 Switches!!</h2>
-      <b>Version 0.9 Beta</b> | 🔗 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Github Link</a> | 💬 <a href="https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-opple-ikea/" target="_blank">Community Topic</a>
+      <b>Version 0.91 Beta</b> | 🔗 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Github Link</a> | 💬 <a href="https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-opple-ikea/" target="_blank">Community Topic</a>
       </div>
       <br>   
     Control anything you want with Opple or Aqara switches like WXCJKG13LM 
@@ -13,30 +13,37 @@ blueprint:
     Ikea buttons: event_types: on, off, brightness_move_up, brightness_move_down, brightness_stop 
     
     * Each band button has single, double, triple, hold & release.. 
-    
       Switch Button Layout (little dot lower left). Switch could be rotated like you want:     
       .---.---.---.     
       | 2 | 4 | 6 |
       |   |   |   |
       |.1 | 3 | 5 |
       '---'---'---'
-    
+
+     ## 🔧 Requirements:
     ***NOTE:*** Use zigbee2MQTT > 2025.1 or above whitout lecacy options 
 
     ***Changelog:***
+    added Philips
     added Aqara WXKG07LM for DAVIZINHO (Aqara_switches)  
+
+    ***Todo***
+    - ikea E2001/E2002
+    - description how to deliver and check net brands/modens and event_types
+    - better looking blueprint
 
     ***Compatibility list:***
     aqara: Aqara (double) rocker, WXKG07LM, WXKG01LM (single switch)
     Ikea:  E1743
     Lidl: HG08164 (single switch)
     Opple: WXCJKG12LM, WXCJKG13LM
+    Philips: 929003017102, 929002398602, 324131092621
 
   domain: automation
   homeassistant:
     min_version: 2024.12.0
   input:
-    aqara_switch:
+    input_switch:
       name: switch
       description: Switch to use *
       selector:
@@ -45,9 +52,10 @@ blueprint:
           - event
           integration: mqtt
           multiple: false
+#Ikea          
     Ikea_sensor:
       name: Ikea sensor
-      description: E1743
+      description:  Compatiible with E1743,E2001/E2002
       icon: mdi:cog
       collapsed: true
       input:
@@ -63,6 +71,7 @@ blueprint:
           default: []
           selector:
             action: {}
+#singles            
     single_switches:
       name: Single Aqara Switch
       icon: mdi:cog
@@ -74,7 +83,8 @@ blueprint:
           description: Action to after click (ronde aqara buttons)
           default: []
           selector:
-            action: {}            
+            action: {}    
+#aqara
     Aqara_switches:
       name: Aqara rocker and WXKG07LM switches
       description: Aqara switches to use (WXKG07LM, )
@@ -134,7 +144,8 @@ blueprint:
           description: Action to run after single right click
           default: []
           selector:
-            action: {}                                                                               
+            action: {}
+#Opple                                                                                           
     Opple_switches:
       name: Opple switches
       collapsed: true        
@@ -320,26 +331,56 @@ blueprint:
           default: []
           selector:
             action: {}
+#Philips    
+    Philips_switches:
+          name: Philips
+          description: Compatiible with 929003017102, 929002398602, 324131092621
+          icon: mdi:cog
+          collapsed: true
+          input:
+            left_press:
+              name: Philips left_press
+              description: Action to after left press
+              default: []
+              selector:
+                action: {}   
+            left_press_release:
+              name: Philips Off button
+              description: Philips left_press_release
+              default: []
+              selector:
+                action: {}          
+    Sample_switches:
+      name: Sample switches
+      collapsed: true        
+      icon: mdi:buttons
+      input:    
+        button_eventname:
+          name: Button 1 - Description
+          description: Action to run after .....
+          default: []
+          selector:
+            action: {}                       
 mode: parallel
 max_exceeded: silent
 trigger:
 - platform: state
-  entity_id: !input aqara_switch
+  entity_id: !input input_switch
 condition:
   condition: template
   value_template: '{{ trigger.to_state.attributes.event_type in (
     ''on'',''off'',  
     ''single'',
-    ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',''hold_left'',''hold_right'',''hold_both'',
-    ''button_1_single'',
-    ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
-    ''button_2_single'', ''button_2_double'', ''button_2_triple'', ''button_2_hold'',
-    ''button_2_release'', ''button_3_single'',''button_3_double'', ''button_3_triple'',
-    ''button_3_hold'', ''button_3_release'', ''button_4_single'', ''button_4_double'',
-    ''button_4_triple'', ''button_4_hold'', ''button_4_release'', ''button_5_single'',
-    ''button_5_double'', ''button_5_triple'', ''button_5_hold'', ''button_5_release'',
-    ''button_6_single'', ''button_6_double'', ''button_6_triple'', ''button_6_hold'',
-    ''button_6_release'' ) }}'
+    ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
+    ''hold_left'',''hold_right'',''hold_both'',
+    ''button_1_single'', ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
+    ''button_2_single'', ''button_2_double'', ''button_2_triple'', ''button_2_hold'', ''button_2_release'', 
+    ''button_3_single'',''button_3_double'', ''button_3_triple'',  ''button_3_hold'', ''button_3_release'', 
+    ''button_4_single'', ''button_4_double'',''button_4_triple'', ''button_4_hold'', ''button_4_release'', 
+    ''button_5_single'', ''button_5_double'', ''button_5_triple'', ''button_5_hold'', ''button_5_release'',
+    ''button_6_single'', ''button_6_double'', ''button_6_triple'', ''button_6_hold'',''button_6_release'', 
+    ''left_press'',''left_press_release'',''right_press'',''right_press_release'',''left_hold'',''left_hold_release'',''right_hold'',''right_hold_release'',''toggle'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',''off_press_release'',''off_hold_release'',''up_press'',''up_hold'',''up_press_release'',''up_hold_release'',''down_press'',''down_hold'',''down_press_release'',''down_hold_release'',''recall_0'',''recall_1''    
+    ) }}'
 action:
 - variables:
     command: '{{ trigger.to_state.attributes.event_type }}'
@@ -470,3 +511,86 @@ action:
   - conditions:
     - '{{ command == ''button_6_release'' }}'
     sequence: !input button_6_release
+
+#philips
+  - conditions:
+      - '{{ command == ''left_press'' }}'
+    sequence: !input left_press
+  - conditions:
+      - '{{ command == ''left_press_release'' }}'
+    sequence: !input left_press_release
+  - conditions:
+      - '{{ command == ''right_press'' }}'
+    sequence: !input right_press
+  - conditions:
+      - '{{ command == ''right_press_release'' }}'
+    sequence: !input right_press_release
+  - conditions:
+      - '{{ command == ''left_hold'' }}'
+    sequence: !input left_hold
+  - conditions:
+      - '{{ command == ''left_hold_release'' }}'
+    sequence: !input left_hold_release
+  - conditions:
+      - '{{ command == ''right_hold'' }}'
+    sequence: !input right_hold
+  - conditions:
+      - '{{ command == ''right_hold_release'' }}'
+    sequence: !input right_hold_release
+  - conditions:
+      - '{{ command == ''toggle'' }}'
+    sequence: !input toggle
+  - conditions:
+      - '{{ command == ''on_press'' }}'
+    sequence: !input on_press
+  - conditions:
+      - '{{ command == ''on_hold'' }}'
+    sequence: !input on_hold
+  - conditions:
+      - '{{ command == ''on_press_release'' }}'
+    sequence: !input on_press_release
+  - conditions:
+      - '{{ command == ''on_hold_release'' }}'
+    sequence: !input on_hold_release
+  - conditions:
+      - '{{ command == ''off_press'' }}'
+    sequence: !input off_press
+  - conditions:
+      - '{{ command == ''off_hold'' }}'
+    sequence: !input off_hold
+  - conditions:
+      - '{{ command == ''off_press_release'' }}'
+    sequence: !input off_press_release
+  - conditions:
+      - '{{ command == ''off_hold_release'' }}'
+    sequence: !input off_hold_release
+  - conditions:
+      - '{{ command == ''up_press'' }}'
+    sequence: !input up_press
+  - conditions:
+      - '{{ command == ''up_hold'' }}'
+    sequence: !input up_hold
+  - conditions:
+      - '{{ command == ''up_press_release'' }}'
+    sequence: !input up_press_release
+  - conditions:
+      - '{{ command == ''up_hold_release'' }}'
+    sequence: !input up_hold_release
+  - conditions:
+      - '{{ command == ''down_press'' }}'
+    sequence: !input down_press
+  - conditions:
+      - '{{ command == ''down_hold'' }}'
+    sequence: !input down_hold
+  - conditions:
+      - '{{ command == ''down_press_release'' }}'
+    sequence: !input down_press_release
+  - conditions:
+      - '{{ command == ''down_hold_release'' }}'
+    sequence: !input down_hold_release
+  - conditions:
+      - '{{ command == ''recall_0'' }}'
+    sequence: !input recall_0
+  - conditions:
+      - '{{ command == ''recall_1'' }}'
+    sequence: !input recall_1
