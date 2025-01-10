@@ -31,4 +31,16 @@ Todo:
     Opple: WXCJKG12LM, WXCJKG13LM
     Philips: 929003017102, 929002398602, 324131092621
 
+
+**Update the Blueprint**  
+If the blueprint is updated on github, you have to re-import it and reload blueprints in Home Assistant:
+- Go to **Settings** > **automations and scenes**.
+- Go to **Blueprints** on the top bar.
+- search for the blueprint of remb0 and click on the 3 dots on the end of the line.
+- Click the **Reload/import Blueprints** .
+- If necessary, reapply the blueprint to an automation:
+- Navigate to **Settings** > **Automations & Scenes**.
+- Select the automation using the blueprint.
+- Make any required updates and save.
+
 [![Home Assistant Community Topic]](https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-opple-ikea/823618)
