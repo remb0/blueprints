@@ -5,7 +5,7 @@ blueprint:
   description: >-
     <div>
       <h2>🔔 Switches!!</h2>
-      <b>Version 0.91 Beta</b> | 🔗 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Github Link</a> | 💬 <a href="https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-opple-ikea/" target="_blank">Community Topic</a>
+      <b>Version 0.91 Beta</b> | 🔗 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Github Link</a> | 💬 <a href="https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-xiaomi-opple-ikea-lidl-philips/823618" target="_blank">Community Topic</a>
       </div>
       <br>   
     Control any switch you want from different brands and models. Goal is to support as much as possible.
