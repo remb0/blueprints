@@ -8,29 +8,16 @@ blueprint:
       <b>Version 0.91 Beta</b> | 🔗 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Github Link</a> | 💬 <a href="https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-opple-ikea/" target="_blank">Community Topic</a>
       </div>
       <br>   
-    Control anything you want with Opple or Aqara switches like WXCJKG13LM 
-    event_types: single_left, single_right, single_both, double_left, double_right, double_both, hold_left, hold_right, hold_both 
-    Ikea buttons: event_types: on, off, brightness_move_up, brightness_move_down, brightness_stop 
-    
-    * Each band button has single, double, triple, hold & release.. 
-      Switch Button Layout (little dot lower left). Switch could be rotated like you want:     
-      .---.---.---.     
-      | 2 | 4 | 6 |
-      |   |   |   |
-      |.1 | 3 | 5 |
-      '---'---'---'
+    Control any switch you want from different brands and models. Goal is to support as much as possible.
+    Feel free to contribute: in topics or github. give brand, model als the even_types like: single_left, single_right.  
 
      ## 🔧 Requirements:
     ***NOTE:*** Use zigbee2MQTT > 2025.1 or above whitout lecacy options 
 
-    ***Changelog:***
-    added Philips
-    added Aqara WXKG07LM for DAVIZINHO (Aqara_switches)  
-
-    ***Todo***
-    - ikea E2001/E2002
-    - description how to deliver and check net brands/modens and event_types
-    - better looking blueprint
+    ## 🔧 Changelog:
+    WXKG12LM
+    Philips
+    Aqara WXKG07LM for DAVIZINHO (Aqara_switches)  
 
     ***Compatibility list:***
     Aqara: Aqara (double) rocker, WXKG07LM, 
