@@ -33,7 +33,8 @@ blueprint:
     - better looking blueprint
 
     ***Compatibility list:***
-    aqara: Aqara (double) rocker, WXKG07LM, WXKG01LM (single switch)
+    Aqara: Aqara (double) rocker, WXKG07LM, 
+    Aqara: single switches: WXKG12LM, WXKG01LM (single switch)
     Ikea:  E1743
     Lidl: HG08164 (single switch)
     Opple: WXCJKG12LM, WXCJKG13LM
@@ -74,16 +75,41 @@ blueprint:
 #singles            
     single_switches:
       name: Single Aqara Switch
-      icon: mdi:cog
-      description: Aqara sensor to use  (WXKG01LM)
+      icon: mdi:mdi:gesture-double-tap
+      description: Aqara (WXKG01LM, WXKG12LM)
       collapsed: true      
       input:
         single:
-          name: Single button
-          description: Action to after click (ronde aqara buttons)
+          name: Single click
+          description: Action to after click
           default: []
           selector:
-            action: {}    
+            action: {}
+        double:
+          name: double click
+          description: Action to after click
+          default: []
+          selector:
+            action: {}   
+        hold:
+          name: hold
+          description: Action after hold
+          default: []
+          selector:
+            action: {}  
+        release:
+          name: release
+          description: Action after release
+          default: []
+          selector:
+            action: {}  
+        shake:
+          name: shake
+          description: Action for shaking
+          default: []
+          selector:
+            action: {}              
+
 #aqara
     Aqara_switches:
       name: Aqara rocker and WXKG07LM switches
@@ -520,7 +546,7 @@ condition:
   condition: template
   value_template: '{{ trigger.to_state.attributes.event_type in (
     ''on'',''off'',  
-    ''single'',
+    ''single'',''double'',''hold'',''release'',''shake'',
     ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
     ''hold_left'',''hold_right'',''hold_both'',
     ''button_1_single'', ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
@@ -544,6 +570,18 @@ action:
   - conditions:
     - '{{ command == ''single'' }}'
     sequence: !input single
+  - conditions:
+    - '{{ command == ''double'' }}'
+    sequence: !input double
+  - conditions:
+    - '{{ command == ''hold'' }}'
+    sequence: !input hold
+  - conditions:
+    - '{{ command == ''release'' }}'
+    sequence: !input release
+  - conditions:
+    - '{{ command == ''shake'' }}'
+    sequence: !input shake                
   - conditions:
     - '{{ command == ''single_left'' }}'
     sequence: !input single_left
