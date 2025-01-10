@@ -62,8 +62,8 @@ blueprint:
             action: {}
 #singles            
     single_switches:
-      name: Single Aqara Switch
-      icon: mdi:mdi:gesture-double-tap
+      name: Single Switches
+      icon: mdi:gesture-double-tap
       description: Aqara (WXKG01LM, WXKG12LM)
       collapsed: true      
       input:
