@@ -514,17 +514,17 @@ blueprint:
           default: []
           selector:
             action: {}         
-    Sample_switches:
-      name: Sample switches
-      collapsed: true        
-      icon: mdi:buttons
-      input:    
-        button_eventname:
-          name: Button 1 - Description
-          description: Action to run after .....
-          default: []
-          selector:
-            action: {}                       
+#    Sample_switches:
+#      name: Sample switches
+#      collapsed: true        
+#      icon: mdi:buttons
+#      input:    
+#        button_eventname:
+#          name: Button 1 - Description
+#          description: Action to run after .....
+#          default: []
+#          selector:
+#            action: {}                       
 mode: parallel
 max_exceeded: silent
 trigger:
