@@ -15,6 +15,7 @@ blueprint:
     ***NOTE:*** Use zigbee2MQTT > 2025.1 or above whitout lecacy options 
 
     ## 🔧 Changelog:
+    ***Added:***
     WXKG12LM
     Philips
     Aqara WXKG07LM for DAVIZINHO (Aqara_switches)  
