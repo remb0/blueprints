@@ -45,7 +45,7 @@ blueprint:
     Ikea_sensor:
       name: Ikea sensor
       description:  Compatiible with E1743,E2001/E2002
-      icon: mdi:cog
+      icon: mdi:knob
       collapsed: true
       input:
         aan:
@@ -103,7 +103,7 @@ blueprint:
       name: Aqara rocker and WXKG07LM switches
       description: Aqara switches to use (WXKG07LM, )
       collapsed: true          
-      icon: mdi:cog
+      icon: mdi:light-switch-off
       input:
         single_left:
           name: Left button
