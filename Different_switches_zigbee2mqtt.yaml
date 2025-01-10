@@ -163,7 +163,7 @@ blueprint:
     Opple_switches:
       name: Opple switches
       collapsed: true        
-      icon: mdi:buttons
+      icon: mdi:dip-switch
       input:    
         button_1_single:
           name: Button 1 - Single Click
