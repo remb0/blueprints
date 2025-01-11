@@ -25,7 +25,6 @@ blueprint:
     Lidl: HG08164 (single switch)
     Opple: WXCJKG12LM, WXCJKG13LM
     Philips: 929003017102, 929002398602, 324131092621
-
   domain: automation
   homeassistant:
     min_version: 2024.12.0
@@ -42,7 +41,7 @@ blueprint:
 #Ikea          
     Ikea_sensor:
       name: Ikea sensor
-      description:  Compatible with E1743, E2201,e2202,E1812,E1524/E1810  (maybe brightness can have problems)
+      description:  Compatible with E1743, E2201,e2202,E1812,E1524/E1810, maybe brightness can have problems.
       icon: mdi:knob
       collapsed: true
       input:
@@ -82,7 +81,6 @@ blueprint:
           default: []
           selector:
             action: {}
-
         brightness_up_click: 
           name: Brightness Up Click button
           description: Action to execute after brightness up is clicked
@@ -137,35 +135,30 @@ blueprint:
           default: []
           selector:
             action: {}
-
         arrow_left_release: 
           name: Arrow Left Release button
           description: Action to execute after releasing left arrow
           default: []
           selector:
             action: {}
-
         arrow_right_click: 
           name: Arrow Right Click button
           description: Action to execute after clicking right arrow
           default: []
           selector:
             action: {}
-
         arrow_right_hold: 
           name: Arrow Right Hold button
           description: Action to execute while holding right arrow
           default: []
           selector:
             action: {}
-
         arrow_right_release: 
           name: Arrow Right Release button
           description: Action to execute after releasing right arrow
           default: []
           selector:
             action: {}
-
 #singles            
     single_switches:
       name: Single Switches
