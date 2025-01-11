@@ -647,7 +647,7 @@ condition:
     ''button_5_single'', ''button_5_double'', ''button_5_triple'', ''button_5_hold'', ''button_5_release'',
     ''button_6_single'', ''button_6_double'', ''button_6_triple'', ''button_6_hold'',''button_6_release'', 
     ''left_press'',''left_press_release'',''right_press'',''right_press_release'',''left_hold'',''left_hold_release'',''right_hold'',
-    ''right_hold_release'',''toggle'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',
+    ''right_hold_release'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',
     ''off_press_release'',''off_hold_release'',''up_press'',''up_hold'',''up_press_release'',''up_hold_release'',''down_press'',''down_hold'',
     ''down_press_release'',''down_hold_release'',''recall_0'',''recall_1''    
     ) }}'
