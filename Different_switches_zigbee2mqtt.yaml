@@ -499,12 +499,12 @@ blueprint:
           default: []
           selector:
             action: {}
-        toggle:
-          name: Toggle
-          description: Action for toggle
-          default: []
-          selector:
-            action: {}
+#        toggle:
+#          name: Toggle
+#          description: Action for toggle
+#          default: []
+#          selector:
+#            action: {}
         on_press:
           name: On Press
           description: Action for on_press
