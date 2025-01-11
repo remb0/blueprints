@@ -533,6 +533,7 @@ trigger:
 condition:
   condition: template
   value_template: '{{ trigger.to_state.attributes.event_type in (
+    ''unavailable'',
     ''on'',''off'',  
     ''single'',''double'',''hold'',''release'',''shake'',
     ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
