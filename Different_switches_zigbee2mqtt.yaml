@@ -12,19 +12,19 @@ blueprint:
     Feel free to contribute: in topics or github. give brand, model als the even_types like: single_left, single_right.  
 
      ## 🔧 Requirements:
-    ***NOTE:*** Use zigbee2MQTT > 2025.1 or above whitout lecacy options 
+    ***NOTE:*** Use zigbee2MQTT > 2025.1 or above without legacy options 
 
     ## 🔧 Changelog:
     ***Added:***
     20250111: Ikea added
 
     ***Compatibility list:***
-    Aqara: Aqara (double) rocker, WXKG07LM /n
-    Aqara: single switches: WXKG12LM, WXKG01LM (single switch) /n
-    Ikea:  E1743, E2201,e2202,E1812,E1524/E1810 3 /n
-    Lidl: HG08164 (single switch) /n
-    Opple: WXCJKG12LM, WXCJKG13LM /n
-    Philips: 929003017102, 929002398602, 324131092621 /n
+    Aqara: Aqara (double) rocker, WXKG07LM
+    Aqara: single switches: WXKG12LM, WXKG01LM (single switch)
+    Ikea:  E1743, E2201, E2202, E1812, E1524/E1810 3
+    Lidl: HG08164 (single switch)
+    Opple: WXCJKG12LM, WXCJKG13LM
+    Philips: 929003017102, 929002398602, 324131092621
 
   domain: automation
   homeassistant:
@@ -669,73 +669,56 @@ action:
     - '{{ command == ''off'' }}'  
     sequence: !input uit
   - conditions:
-      - '{{ command == ''brightness_move_up'' }}'
+    - '{{ command == ''brightness_move_up'' }}'
     sequence: !input brightness_move_up
-
   - conditions:
-      - '{{ command == ''brightness_move_down'' }}'
+    - '{{ command == ''brightness_move_down'' }}'
     sequence: !input brightness_move_down
-
   - conditions:
-      - '{{ command == ''brightness_stop'' }}'
+    - '{{ command == ''brightness_stop'' }}'
     sequence: !input brightness_stop
-
   - conditions:
-      - '{{ command == ''toggle'' }}'
+    - '{{ command == ''toggle'' }}'
     sequence: !input toggle
-
   - conditions:
-      - '{{ command == ''brightness_up_click'' }}'
+    - '{{ command == ''brightness_up_click'' }}'
     sequence: !input brightness_up_click
-
   - conditions:
-      - '{{ command == ''brightness_down_click'' }}'
+    - '{{ command == ''brightness_down_click'' }}'
     sequence: !input brightness_down_click
-
   - conditions:
-      - '{{ command == ''brightness_up_hold'' }}'
+    - '{{ command == ''brightness_up_hold'' }}'
     sequence: !input brightness_up_hold
-
   - conditions:
-      - '{{ command == ''brightness_up_release'' }}'
+    - '{{ command == ''brightness_up_release'' }}'
     sequence: !input brightness_up_release
-
   - conditions:
-      - '{{ command == ''brightness_down_hold'' }}'
+    - '{{ command == ''brightness_down_hold'' }}'
     sequence: !input brightness_down_hold
-
   - conditions:
-      - '{{ command == ''brightness_down_release'' }}'
+    - '{{ command == ''brightness_down_release'' }}'
     sequence: !input brightness_down_release
-
   - conditions:
-      - '{{ command == ''toggle_hold'' }}'
+    - '{{ command == ''toggle_hold'' }}'
     sequence: !input toggle_hold
-
   - conditions:
-      - '{{ command == ''arrow_left_click'' }}'
+    - '{{ command == ''arrow_left_click'' }}'
     sequence: !input arrow_left_click
-
   - conditions:
-      - '{{ command == ''arrow_left_hold'' }}'
+    - '{{ command == ''arrow_left_hold'' }}'
     sequence: !input arrow_left_hold
-
   - conditions:
-      - '{{ command == ''arrow_left_release'' }}'
+    - '{{ command == ''arrow_left_release'' }}'
     sequence: !input arrow_left_release
-
   - conditions:
-      - '{{ command == ''arrow_right_click'' }}'
+    - '{{ command == ''arrow_right_click'' }}'
     sequence: !input arrow_right_click
-
   - conditions:
-      - '{{ command == ''arrow_right_hold'' }}'
+    - '{{ command == ''arrow_right_hold'' }}'
     sequence: !input arrow_right_hold
-
   - conditions:
-      - '{{ command == ''arrow_right_release'' }}'
-    sequence: !input arrow_right_release
-        
+    - '{{ command == ''arrow_right_release'' }}'
+    sequence: !input arrow_right_release    
   - conditions:
     - '{{ command == ''single'' }}'
     sequence: !input single
@@ -903,13 +886,13 @@ action:
     - '{{ command == ''on_hold'' }}'
     sequence: !input on_hold
   - conditions:
-      '{{ command == ''on_press_release'' }}'
+    - '{{ command == ''on_press_release'' }}'
     sequence: !input on_press_release
   - conditions:
     - '{{ command == ''on_hold_release'' }}'
     sequence: !input on_hold_release
   - conditions:
-    -  '{{ command == ''off_press'' }}'
+    - '{{ command == ''off_press'' }}'
     sequence: !input off_press
   - conditions:
     - '{{ command == ''off_hold'' }}'
