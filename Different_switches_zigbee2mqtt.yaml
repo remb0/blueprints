@@ -21,7 +21,7 @@ blueprint:
     ***Compatibility list:***
     Aqara: Aqara (double) rocker, WXKG07LM 
     Aqara: single switches: WXKG12LM, WXKG01LM (single switch)
-    Ikea:  E1743, E2201,e2202,E1812,E1524/E1810 3
+    Ikea:  E1743, E2201,e2202,E1812,E1524,E1810 3
     Lidl: HG08164 (single switch) 
     Opple: WXCJKG12LM, WXCJKG13LM 
     Philips: 929003017102, 929002398602, 324131092621
@@ -42,7 +42,7 @@ blueprint:
 #Ikea          
     Ikea_sensor:
       name: Ikea sensor
-      description:  Compatiible with E1743, E2201,e2202,E1812,E1524,E1810  (maybe brightness can have problems)
+      description:  Compatiible with E1743, E2201,e2202,E1812,E1524,E1810 but maybe brightness can have problems.
       icon: mdi:knob
       collapsed: true
       input:
@@ -51,7 +51,7 @@ blueprint:
           description: Action to after click on
           default: []
           selector:
-            action: {}   
+            action: {}
         uit:
           name: Ikea Off button
           description: Action to after click off
@@ -165,7 +165,7 @@ blueprint:
       name: Single Switches
       icon: mdi:gesture-double-tap
       description: Aqara (WXKG01LM, WXKG12LM)
-      collapsed: true      
+      collapsed: true
       input:
         single:
           name: Single click
@@ -178,31 +178,30 @@ blueprint:
           description: Action to after click
           default: []
           selector:
-            action: {}   
+            action: {}
         hold:
           name: hold
           description: Action after hold
           default: []
           selector:
-            action: {}  
+            action: {}
         release:
           name: release
           description: Action after release
           default: []
           selector:
-            action: {}  
+            action: {}
         shake:
           name: shake
           description: Action for shaking
           default: []
           selector:
-            action: {}              
-
+            action: {}
 #aqara
     Aqara_switches:
       name: Aqara rocker and WXKG07LM switches
       description: Aqara switches to use (WXKG07LM, )
-      collapsed: true          
+      collapsed: true
       icon: mdi:light-switch-off
       input:
         single_left:
@@ -210,7 +209,7 @@ blueprint:
           description: Action to run after single Left click
           default: []
           selector:
-            action: {}      
+            action: {}
         single_right:
           name: Right button
           description: Action to run after single right click
@@ -222,37 +221,37 @@ blueprint:
           description: Action to run after holding Right
           default: []
           selector:
-            action: {} 
+            action: {}
         hold_right:
           name: Hold Right button
           description: Action to run after holding Right
           default: []
           selector:
-            action: {}      
+            action: {}
         hold_both:
           name: Hold both buttons
           description: Action to run after hold both buttons
           default: []
           selector:
-            action: {}                                 
+            action: {}
         single_both:
           name: single both buttons
           description: Action to run after single both click
           default: []
           selector:
-            action: {}   
+            action: {}
         double_left:
           name: double Left button
           description: Action to run after double left click
           default: []
           selector:
-            action: {} 
+            action: {}
         double_right:
           name: double Right button
           description: Action to run after double both click
           default: []
           selector:
-            action: {}   
+            action: {}
         double_both:
           name: double both buttons
           description: Action to run after single right click
@@ -262,9 +261,9 @@ blueprint:
 #Opple                                                                                           
     Opple_switches:
       name: Opple switches
-      collapsed: true        
+      collapsed: true
       icon: mdi:dip-switch
-      input:    
+      input:
         button_1_single:
           name: Button 1 - Single Click
           description: Action to run after single click of button 1
@@ -450,8 +449,8 @@ blueprint:
       name: Philips
       description: Compatiible with 929003017102, 929002398602, 324131092621
       icon: mdi:cog
-      collapsed: true   
-      input: 
+      collapsed: true
+      input:
         left_press:
           name: Left Press
           description: Action for left_press
@@ -529,7 +528,7 @@ blueprint:
           description: Action for on_hold_release
           default: []
           selector:
-            action: {}   
+            action: {}
         off_press:
           name: Off Press
           description: Action for off_press
@@ -613,7 +612,7 @@ blueprint:
           description: Action for recall_1
           default: []
           selector:
-            action: {}         
+            action: {}
 #    Sample_switches:
 #      name: Sample switches
 #      collapsed: true        
@@ -646,6 +645,7 @@ condition:
     ''button_3_single'',''button_3_double'', ''button_3_triple'',  ''button_3_hold'', ''button_3_release'', 
     ''button_4_single'', ''button_4_double'',''button_4_triple'', ''button_4_hold'', ''button_4_release'', 
     ''button_5_single'', ''button_5_double'', ''button_5_triple'', ''button_5_hold'', ''button_5_release'',
+																					  
     ''button_6_single'', ''button_6_double'', ''button_6_triple'', ''button_6_hold'',''button_6_release'', 
     ''left_press'',''left_press_release'',''right_press'',''right_press_release'',''left_hold'',''left_hold_release'',''right_hold'',
     ''right_hold_release'',''toggle'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',
@@ -660,7 +660,7 @@ action:
     - '{{ command == ''on'' }}'
     sequence: !input aan
   - conditions:
-    - '{{ command == ''off'' }}'  
+    - '{{ command == ''off'' }}'
     sequence: !input uit
   - conditions:
     - '{{ command == ''brightness_move_up'' }}'
@@ -724,7 +724,7 @@ action:
     sequence: !input release
   - conditions:
     - '{{ command == ''shake'' }}'
-    sequence: !input shake                
+    sequence: !input shake
   - conditions:
     - '{{ command == ''single_left'' }}'
     sequence: !input single_left
@@ -739,7 +739,7 @@ action:
     sequence: !input double_left
   - conditions:
     - '{{ command == ''double_right'' }}'
-    sequence: !input double_right 
+    sequence: !input double_right
   - conditions:
     - '{{ command == ''double_both'' }}'
     sequence: !input double_both
@@ -751,7 +751,7 @@ action:
     sequence: !input hold_right
   - conditions:
     - '{{ command == ''hold_both'' }}'
-    sequence: !input hold_both                               
+    sequence: !input hold_both
   - conditions:
     - '{{ command == ''button_1_single'' }}'
     sequence: !input button_1_single
