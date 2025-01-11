@@ -876,9 +876,9 @@ action:
   - conditions:
     - '{{ command == ''right_hold_release'' }}'
     sequence: !input right_hold_release
-  - conditions:
-    - '{{ command == ''toggle'' }}'
-    sequence: !input toggle
+#  - conditions:
+#    - '{{ command == ''toggle'' }}'
+#    sequence: !input toggle
   - conditions:
     - '{{ command == ''on_press'' }}'
     sequence: !input on_press
