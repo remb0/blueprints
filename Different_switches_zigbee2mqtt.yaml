@@ -641,7 +641,9 @@ condition:
   value_template: '{{ trigger.to_state.attributes.event_type in (
     ''unavailable'',
     ''on'',''off'',  
-    ''brightness_move_up'',''brightness_move_down'',''brightness_stop'',''toggle'',''brightness_up_click'',''brightness_down_click'',''brightness_up_hold'',''brightness_up_release'',''brightness_down_hold'',''brightness_down_release'',''toggle_hold'',''arrow_left_click'',''arrow_left_hold'',''arrow_left_release'',''arrow_right_click'',''arrow_right_hold'',''arrow_right_release'',
+    ''brightness_move_up'',''brightness_move_down'',''brightness_stop'',''toggle'',''brightness_up_click'',''brightness_down_click'',
+    ''brightness_up_hold'',''brightness_up_release'',''brightness_down_hold'',''brightness_down_release'',''toggle_hold'',''arrow_left_click'',
+    ''arrow_left_hold'',''arrow_left_release'',''arrow_right_click'',''arrow_right_hold'',''arrow_right_release'',
     ''single'',''double'',''hold'',''release'',''shake'',
     ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
     ''hold_left'',''hold_right'',''hold_both'',
@@ -651,7 +653,10 @@ condition:
     ''button_4_single'', ''button_4_double'',''button_4_triple'', ''button_4_hold'', ''button_4_release'', 
     ''button_5_single'', ''button_5_double'', ''button_5_triple'', ''button_5_hold'', ''button_5_release'',
     ''button_6_single'', ''button_6_double'', ''button_6_triple'', ''button_6_hold'',''button_6_release'', 
-    ''left_press'',''left_press_release'',''right_press'',''right_press_release'',''left_hold'',''left_hold_release'',''right_hold'',''right_hold_release'',''toggle'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',''off_press_release'',''off_hold_release'',''up_press'',''up_hold'',''up_press_release'',''up_hold_release'',''down_press'',''down_hold'',''down_press_release'',''down_hold_release'',''recall_0'',''recall_1''    
+    ''left_press'',''left_press_release'',''right_press'',''right_press_release'',''left_hold'',''left_hold_release'',''right_hold'',
+    ''right_hold_release'',''toggle'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',
+    ''off_press_release'',''off_hold_release'',''up_press'',''up_hold'',''up_press_release'',''up_hold_release'',''down_press'',''down_hold'',
+    ''down_press_release'',''down_hold_release'',''recall_0'',''recall_1''    
     ) }}'
 action:
 - variables:
