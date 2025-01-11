@@ -19,12 +19,12 @@ blueprint:
     20250111: Ikea added
 
     ***Compatibility list:***
-    Aqara: Aqara (double) rocker, WXKG07LM, 
-    Aqara: single switches: WXKG12LM, WXKG01LM (single switch)
-    Ikea:  E1743, E2201,e2202,E1812,E1524/E1810 3
-    Lidl: HG08164 (single switch)
-    Opple: WXCJKG12LM, WXCJKG13LM
-    Philips: 929003017102, 929002398602, 324131092621
+    Aqara: Aqara (double) rocker, WXKG07LM /n
+    Aqara: single switches: WXKG12LM, WXKG01LM (single switch) /n
+    Ikea:  E1743, E2201,e2202,E1812,E1524/E1810 3 /n
+    Lidl: HG08164 (single switch) /n
+    Opple: WXCJKG12LM, WXCJKG13LM /n
+    Philips: 929003017102, 929002398602, 324131092621 /n
 
   domain: automation
   homeassistant:
