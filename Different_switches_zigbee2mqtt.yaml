@@ -12,19 +12,19 @@ blueprint:
     Feel free to contribute: in topics or github. give brand, model als the even_types like: single_left, single_right.  
 
      ## 🔧 Requirements:
-    ***NOTE:*** Use zigbee2MQTT > 2025.1 or above whitout lecacy options 
+    ***NOTE:*** Use zigbee2MQTT > 2025.1 or above without legacy options 
 
     ## 🔧 Changelog:
     ***Added:***
     20250111: Ikea added
 
     ***Compatibility list:***
-    Aqara: Aqara (double) rocker, WXKG07LM /n
-    Aqara: single switches: WXKG12LM, WXKG01LM (single switch) /n
-    Ikea:  E1743, E2201,e2202,E1812,E1524/E1810 3 /n
-    Lidl: HG08164 (single switch) /n
-    Opple: WXCJKG12LM, WXCJKG13LM /n
-    Philips: 929003017102, 929002398602, 324131092621 /n
+    Aqara: Aqara (double) rocker, WXKG07LM
+    Aqara: single switches: WXKG12LM, WXKG01LM (single switch)
+    Ikea:  E1743, E2201, E2202, E1812, E1524/E1810 3
+    Lidl: HG08164 (single switch)
+    Opple: WXCJKG12LM, WXCJKG13LM
+    Philips: 929003017102, 929002398602, 324131092621
 
   domain: automation
   homeassistant:
@@ -42,7 +42,7 @@ blueprint:
 #Ikea          
     Ikea_sensor:
       name: Ikea sensor
-      description:  Compatiible with E1743, E2201,e2202,E1812,E1524/E1810  (maybe brghtness can have problems)
+      description:  Compatible with E1743, E2201,e2202,E1812,E1524/E1810  (maybe brightness can have problems)
       icon: mdi:knob
       collapsed: true
       input:
@@ -70,14 +70,12 @@ blueprint:
           default: []
           selector:
             action: {}
-
         brightness_stop: 
           name: Brightness Stop button
           description: Action to execute after brightness stops
           default: []
           selector:
             action: {}
-
         toggle: 
           name: Toggle button
           description: Action to execute after toggling
@@ -91,56 +89,48 @@ blueprint:
           default: []
           selector:
             action: {}
-
         brightness_down_click: 
           name: Brightness Down Click button
           description: Action to execute after brightness down is clicked
           default: []
           selector:
             action: {}
-
         brightness_up_hold: 
           name: Brightness Up Hold button
           description: Action to execute while holding brightness up
           default: []
           selector:
             action: {}
-
         brightness_up_release: 
           name: Brightness Up Release button
           description: Action to execute after releasing brightness up
           default: []
           selector:
             action: {}
-
         brightness_down_hold: 
           name: Brightness Down Hold button
           description: Action to execute while holding brightness down
           default: []
           selector:
             action: {}
-
         brightness_down_release: 
           name: Brightness Down Release button
           description: Action to execute after releasing brightness down
           default: []
           selector:
             action: {}
-
         toggle_hold: 
           name: Toggle Hold button
           description: Action to execute while holding toggle
           default: []
           selector:
             action: {}
-
         arrow_left_click: 
           name: Arrow Left Click button
           description: Action to execute after clicking left arrow
           default: []
           selector:
             action: {}
-
         arrow_left_hold: 
           name: Arrow Left Hold button
           description: Action to execute while holding left arrow
@@ -648,21 +638,26 @@ trigger:
   entity_id: !input input_switch
 condition:
   condition: template
-  value_template: '{{ trigger.to_state.attributes.event_type in (
-    ''unavailable'',
-    ''on'',''off'',  
-    ''brightness_move_up'',''brightness_move_down'',''brightness_stop'',''toggle'',''brightness_up_click'',''brightness_down_click'',''brightness_up_hold'',''brightness_up_release'',''brightness_down_hold'',''brightness_down_release'',''toggle_hold'',''arrow_left_click'',''arrow_left_hold'',''arrow_left_release'',''arrow_right_click'',''arrow_right_hold'',''arrow_right_release'',
-    ''single'',''double'',''hold'',''release'',''shake'',
-    ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
-    ''hold_left'',''hold_right'',''hold_both'',
-    ''button_1_single'', ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
-    ''button_2_single'', ''button_2_double'', ''button_2_triple'', ''button_2_hold'', ''button_2_release'', 
-    ''button_3_single'',''button_3_double'', ''button_3_triple'',  ''button_3_hold'', ''button_3_release'', 
-    ''button_4_single'', ''button_4_double'',''button_4_triple'', ''button_4_hold'', ''button_4_release'', 
-    ''button_5_single'', ''button_5_double'', ''button_5_triple'', ''button_5_hold'', ''button_5_release'',
-    ''button_6_single'', ''button_6_double'', ''button_6_triple'', ''button_6_hold'',''button_6_release'', 
-    ''left_press'',''left_press_release'',''right_press'',''right_press_release'',''left_hold'',''left_hold_release'',''right_hold'',''right_hold_release'',''toggle'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',''off_press_release'',''off_hold_release'',''up_press'',''up_hold'',''up_press_release'',''up_hold_release'',''down_press'',''down_hold'',''down_press_release'',''down_hold_release'',''recall_0'',''recall_1''    
-    ) }}'
+  value_template: >
+    {{ trigger.to_state.attributes.event_type in [
+      'unavailable',
+      'on', 'off',
+      'brightness_move_up', 'brightness_move_down', 'brightness_stop', 'toggle', 'brightness_up_click', 'brightness_down_click', 'brightness_up_hold',
+      'brightness_up_release', 'brightness_down_hold', 'brightness_down_release', 'toggle_hold', 'arrow_left_click', 'arrow_left_hold', 'arrow_left_release',
+      'arrow_right_click', 'arrow_right_hold', 'arrow_right_release',
+      'single', 'double', 'hold', 'release', 'shake',
+      'single_left', 'single_right', 'single_both', 'double_left', 'double_right', 'double_both',
+      'hold_left', 'hold_right', 'hold_both',
+      'button_1_single', 'button_1_double', 'button_1_triple', 'button_1_hold', 'button_1_release',
+      'button_2_single', 'button_2_double', 'button_2_triple', 'button_2_hold', 'button_2_release',
+      'button_3_single', 'button_3_double', 'button_3_triple', 'button_3_hold', 'button_3_release',
+      'button_4_single', 'button_4_double', 'button_4_triple', 'button_4_hold', 'button_4_release',
+      'button_5_single', 'button_5_double', 'button_5_triple', 'button_5_hold', 'button_5_release',
+      'button_6_single', 'button_6_double', 'button_6_triple', 'button_6_hold', 'button_6_release',
+      'left_press', 'left_press_release', 'right_press', 'right_press_release', 'left_hold', 'left_hold_release', 'right_hold', 'right_hold_release', 'toggle',
+      'on_press', 'on_hold', 'on_press_release', 'on_hold_release', 'off_press', 'off_hold', 'off_press_release', 'off_hold_release', 'up_press', 'up_hold',
+      'up_press_release', 'up_hold_release', 'down_press', 'down_hold', 'down_press_release', 'down_hold_release', 'recall_0', 'recall_1'
+    ] }}
 action:
 - variables:
     command: '{{ trigger.to_state.attributes.event_type }}'
@@ -674,73 +669,56 @@ action:
     - '{{ command == ''off'' }}'  
     sequence: !input uit
   - conditions:
-      - '{{ command == ''brightness_move_up'' }}'
+    - '{{ command == ''brightness_move_up'' }}'
     sequence: !input brightness_move_up
-
   - conditions:
-      - '{{ command == ''brightness_move_down'' }}'
+    - '{{ command == ''brightness_move_down'' }}'
     sequence: !input brightness_move_down
-
   - conditions:
-      - '{{ command == ''brightness_stop'' }}'
+    - '{{ command == ''brightness_stop'' }}'
     sequence: !input brightness_stop
-
   - conditions:
-      - '{{ command == ''toggle'' }}'
+    - '{{ command == ''toggle'' }}'
     sequence: !input toggle
-
   - conditions:
-      - '{{ command == ''brightness_up_click'' }}'
+    - '{{ command == ''brightness_up_click'' }}'
     sequence: !input brightness_up_click
-
   - conditions:
-      - '{{ command == ''brightness_down_click'' }}'
+    - '{{ command == ''brightness_down_click'' }}'
     sequence: !input brightness_down_click
-
   - conditions:
-      - '{{ command == ''brightness_up_hold'' }}'
+    - '{{ command == ''brightness_up_hold'' }}'
     sequence: !input brightness_up_hold
-
   - conditions:
-      - '{{ command == ''brightness_up_release'' }}'
+    - '{{ command == ''brightness_up_release'' }}'
     sequence: !input brightness_up_release
-
   - conditions:
-      - '{{ command == ''brightness_down_hold'' }}'
+    - '{{ command == ''brightness_down_hold'' }}'
     sequence: !input brightness_down_hold
-
   - conditions:
-      - '{{ command == ''brightness_down_release'' }}'
+    - '{{ command == ''brightness_down_release'' }}'
     sequence: !input brightness_down_release
-
   - conditions:
-      - '{{ command == ''toggle_hold'' }}'
+    - '{{ command == ''toggle_hold'' }}'
     sequence: !input toggle_hold
-
   - conditions:
-      - '{{ command == ''arrow_left_click'' }}'
+    - '{{ command == ''arrow_left_click'' }}'
     sequence: !input arrow_left_click
-
   - conditions:
-      - '{{ command == ''arrow_left_hold'' }}'
+    - '{{ command == ''arrow_left_hold'' }}'
     sequence: !input arrow_left_hold
-
   - conditions:
-      - '{{ command == ''arrow_left_release'' }}'
+    - '{{ command == ''arrow_left_release'' }}'
     sequence: !input arrow_left_release
-
   - conditions:
-      - '{{ command == ''arrow_right_click'' }}'
+    - '{{ command == ''arrow_right_click'' }}'
     sequence: !input arrow_right_click
-
   - conditions:
-      - '{{ command == ''arrow_right_hold'' }}'
+    - '{{ command == ''arrow_right_hold'' }}'
     sequence: !input arrow_right_hold
-
   - conditions:
-      - '{{ command == ''arrow_right_release'' }}'
-    sequence: !input arrow_right_release
-        
+    - '{{ command == ''arrow_right_release'' }}'
+    sequence: !input arrow_right_release    
   - conditions:
     - '{{ command == ''single'' }}'
     sequence: !input single
@@ -908,13 +886,13 @@ action:
     - '{{ command == ''on_hold'' }}'
     sequence: !input on_hold
   - conditions:
-      '{{ command == ''on_press_release'' }}'
+    - '{{ command == ''on_press_release'' }}'
     sequence: !input on_press_release
   - conditions:
     - '{{ command == ''on_hold_release'' }}'
     sequence: !input on_hold_release
   - conditions:
-    -  '{{ command == ''off_press'' }}'
+    - '{{ command == ''off_press'' }}'
     sequence: !input off_press
   - conditions:
     - '{{ command == ''off_hold'' }}'
