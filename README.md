@@ -44,3 +44,6 @@ If the blueprint is updated on github, you have to re-import it and reload bluep
 - Make any required updates and save.
 
 [![Home Assistant Community Topic]](https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-opple-ikea/823618)
+
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="remb0" data-color="#FFDD00" data-emoji="☕"  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
