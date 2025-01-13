@@ -1,5 +1,7 @@
-Control any switch you want from different brands and models. My goal is to support as much as possible.
-Feel free to contribute: in topics or github. Give brand, model als the even_types like: single_left, single_right.
+# Control Any Switch
+
+Control any switch you want from different brands and models. My goal is to support as many as possible.
+Feel free to contribute in topics or on GitHub. Provide the brand, model, and event types like: single_left, single_right.
 
 Todo:
 - Improve descriptions/guides and topic
@@ -14,10 +16,10 @@ Todo:
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fremb0%2Fblueprints%2Fblob%2Fmain%2FDifferent_switches_zigbee2mqtt.yaml)
  
 
-     ## 🔧 Requirements:
-    ***NOTE:*** Use zigbee2MQTT > 2025.1 or above whitout lecacy options 
+     ## Requirements
+    **Note:** Use zigbee2MQTT version 2025.1 or above without legacy options. 
 
-    ## 🔧 Changelog:
+    ## Changelog
     ***Added:***
     WXKG12LM
     Philips
