@@ -16,6 +16,7 @@ blueprint:
 
     ## 🔧 Changelog:
     ***Added:***
+    20250221: triple,quadruple,many added for WXKG01LM
     20250111: Ikea added
 
     ***Compatibility list:***
@@ -179,6 +180,24 @@ blueprint:
           default: []
           selector:
             action: {}
+        triple:
+          name: triple click
+          description: Action to after triple click
+          default: []
+          selector:
+            action: {}    
+        quadruple:
+          name: quadruple click
+          description: Action to after quadruple click
+          default: []
+          selector:
+            action: {}    
+        many:
+          name: many click
+          description: Action to after many click
+          default: []
+          selector:
+            action: {}                                
         hold:
           name: hold
           description: Action after hold
@@ -633,7 +652,7 @@ condition:
       ''brightness_move_up'',''brightness_move_down'',''brightness_stop'',''toggle'',''brightness_up_click'',''brightness_down_click'',
       ''brightness_up_hold'',''brightness_up_release'',''brightness_down_hold'',''brightness_down_release'',''toggle_hold'',''arrow_left_click'',
       ''arrow_left_hold'',''arrow_left_release'',''arrow_right_click'',''arrow_right_hold'',''arrow_right_release'',
-      ''single'',''double'',''hold'',''release'',''shake'',
+      ''single'',''double'',''hold'',''many'',''triple'',''quadruple'',''release'',''shake'',
       ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
       ''hold_left'',''hold_right'',''hold_both'',
       ''button_1_single'', ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
@@ -714,6 +733,15 @@ action:
   - conditions:
     - '{{ command == ''hold'' }}'
     sequence: !input hold
+  - conditions:
+    - '{{ command == ''triple'' }}'
+    sequence: !input triple
+  - conditions:
+    - '{{ command == ''many'' }}'
+    sequence: !input many
+  - conditions:
+    - '{{ command == ''quadruple'' }}'
+    sequence: !input quadruple
   - conditions:
     - '{{ command == ''release'' }}'
     sequence: !input release
