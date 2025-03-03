@@ -704,6 +704,9 @@ action:
     - '{{ command == ''brightness_down_release'' }}'
     sequence: !input brightness_down_release
   - conditions:
+    - '{{ command == ''toggle'' }}'
+    sequence: !input toggle    
+  - conditions:
     - '{{ command == ''toggle_hold'' }}'
     sequence: !input toggle_hold
   - conditions:
