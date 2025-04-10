@@ -16,14 +16,17 @@ blueprint:
 
     ## 🔧 Changelog:
     ***Added:***
+    20250410: Paulmann 501.34 and Aqara WXKG15LM (thanks: cspaeh Christoph))
+    20250221: triple,quadruple,many added for WXKG01LM
     20250111: Ikea added
 
     ***Compatibility list:***
-    Aqara: Aqara (double) rocker, WXKG07LM 
+    Aqara: Aqara (double) rocker, WXKG07LM, WXKG15LM
     Aqara: single switches: WXKG12LM, WXKG01LM (single switch)
     Ikea:  E1743, E2201,e2202,E1812,E1524,E1810 3
     Lidl: HG08164 (single switch) 
     Opple: WXCJKG12LM, WXCJKG13LM 
+    Paulmann: 501.34
     Philips: 929003017102, 929002398602, 324131092621
 
   domain: automation
@@ -179,6 +182,24 @@ blueprint:
           default: []
           selector:
             action: {}
+        triple:
+          name: triple click
+          description: Action to after triple click
+          default: []
+          selector:
+            action: {}    
+        quadruple:
+          name: quadruple click
+          description: Action to after quadruple click
+          default: []
+          selector:
+            action: {}    
+        many:
+          name: many click
+          description: Action to after many click
+          default: []
+          selector:
+            action: {}
         hold:
           name: hold
           description: Action after hold
@@ -199,7 +220,7 @@ blueprint:
             action: {}
 #aqara
     Aqara_switches:
-      name: Aqara rocker and WXKG07LM switches
+      name: Aqara rocker, WXKG07LM, WXKG15LM   switches
       description: Aqara switches to use (WXKG07LM, )
       collapsed: true
       icon: mdi:light-switch-off
@@ -258,6 +279,12 @@ blueprint:
           default: []
           selector:
             action: {}
+        triple_both :
+          name: Triple both button
+          description: Action to run after triple both
+          default: []
+          selector:
+            action: {}            
 #Opple                                                                                           
     Opple_switches:
       name: Opple switches
@@ -617,7 +644,74 @@ blueprint:
 #          description: Action to run after .....
 #          default: []
 #          selector:
-#            action: {}                       
+#            action: {}             
+    #Paulmann
+    Paulmann_switches:
+      name: Paulmann 501.34
+      description: Compatible with Paulmann 501.34
+      icon: mdi:lightbulb
+      collapsed: true
+      input:
+      on_1:
+        name: On 1
+        description: Action for on_1
+        default: []
+        selector:
+        action: {}
+      off_1:
+        name: Off 1
+        description: Action for off_1
+        default: []
+        selector:
+        action: {}
+      on_2:
+        name: On 2
+        description: Action for on_2
+        default: []
+        selector:
+        action: {}
+      off_2:
+        name: Off 2
+        description: Action for off_2
+        default: []
+        selector:
+        action: {}
+      brightness_move_up_1:
+        name: Brightness Move Up 1
+        description: Action for brightness_move_up_1
+        default: []
+        selector:
+        action: {}
+      brightness_move_down_1:
+        name: Brightness Move Down 1
+        description: Action for brightness_move_down_1
+        default: []
+        selector:
+        action: {}
+      brightness_stop_1:
+        name: Brightness Stop 1
+        description: Action for brightness_stop_1
+        default: []
+        selector:
+        action: {}
+      brightness_move_up_2:
+        name: Brightness Move Up 2
+        description: Action for brightness_move_up_2
+        default: []
+        selector:
+        action: {}
+      brightness_move_down_2:
+        name: Brightness Move Down 2
+        description: Action for brightness_move_down_2
+        default: []
+        selector:
+        action: {}
+      brightness_stop_2:
+        name: Brightness Stop 2
+        description: Action for brightness_stop_2
+        default: []
+        selector:
+        action: {}
 mode: parallel
 max_exceeded: silent
 trigger:
@@ -633,9 +727,9 @@ condition:
       ''brightness_move_up'',''brightness_move_down'',''brightness_stop'',''toggle'',''brightness_up_click'',''brightness_down_click'',
       ''brightness_up_hold'',''brightness_up_release'',''brightness_down_hold'',''brightness_down_release'',''toggle_hold'',''arrow_left_click'',
       ''arrow_left_hold'',''arrow_left_release'',''arrow_right_click'',''arrow_right_hold'',''arrow_right_release'',
-      ''single'',''double'',''hold'',''release'',''shake'',
+      ''single'',''double'',''hold'',''many'',''triple'',''quadruple'',''release'',''shake'',
       ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
-      ''hold_left'',''hold_right'',''hold_both'',
+      ''hold_left'',''hold_right'',''hold_both'',''triple_both'',
       ''button_1_single'', ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
       ''button_2_single'', ''button_2_double'', ''button_2_triple'', ''button_2_hold'', ''button_2_release'', 
       ''button_3_single'',''button_3_double'', ''button_3_triple'',  ''button_3_hold'', ''button_3_release'', 
@@ -645,7 +739,8 @@ condition:
       ''left_press'',''left_press_release'',''right_press'',''right_press_release'',''left_hold'',''left_hold_release'',''right_hold'',
       ''right_hold_release'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',
       ''off_press_release'',''off_hold_release'',''up_press'',''up_hold'',''up_press_release'',''up_hold_release'',''down_press'',''down_hold'',
-      ''down_press_release'',''down_hold_release'',''recall_0'',''recall_1''    
+      ''down_press_release'',''down_hold_release'',''recall_0'',''recall_1'',
+      ''on_1'',''off_1'',''on_2'',''off_2'',''brightness_move_up_1'',''brightness_move_down_1'',''brightness_stop_1'',''brightness_move_up_2'',''brightness_move_down_2'',''brightness_stop_2''    
       ) }}'
 action:
 - variables:
@@ -685,6 +780,9 @@ action:
     - '{{ command == ''brightness_down_release'' }}'
     sequence: !input brightness_down_release
   - conditions:
+    - '{{ command == ''toggle'' }}'
+    sequence: !input toggle    
+  - conditions:
     - '{{ command == ''toggle_hold'' }}'
     sequence: !input toggle_hold
   - conditions:
@@ -714,6 +812,15 @@ action:
   - conditions:
     - '{{ command == ''hold'' }}'
     sequence: !input hold
+  - conditions:
+    - '{{ command == ''triple'' }}'
+    sequence: !input triple
+  - conditions:
+    - '{{ command == ''many'' }}'
+    sequence: !input many
+  - conditions:
+    - '{{ command == ''quadruple'' }}'
+    sequence: !input quadruple
   - conditions:
     - '{{ command == ''release'' }}'
     sequence: !input release
@@ -747,6 +854,9 @@ action:
   - conditions:
     - '{{ command == ''hold_both'' }}'
     sequence: !input hold_both
+  - conditions:
+    - '{{ command == ''triple_both'' }}'
+    sequence: !input triple_both
   - conditions:
     - '{{ command == ''button_1_single'' }}'
     sequence: !input button_1_single
@@ -916,3 +1026,33 @@ action:
   - conditions:
     - '{{ command == ''recall_1'' }}'
     sequence: !input recall_1
+  - conditions:
+    - '{{ command == ''on_1'' }}'
+    sequence: !input on_1
+  - conditions:
+    - '{{ command == ''off_1'' }}'
+    sequence: !input off_1
+  - conditions:
+    - '{{ command == ''on_2'' }}'
+    sequence: !input on_2
+  - conditions:
+    - '{{ command == ''off_2'' }}'
+    sequence: !input off_2
+  - conditions:
+    - '{{ command == ''brightness_move_up_1'' }}'
+    sequence: !input brightness_move_up_1
+  - conditions:
+    - '{{ command == ''brightness_move_down_1'' }}'
+    sequence: !input brightness_move_down_1
+  - conditions:
+    - '{{ command == ''brightness_stop_1'' }}'
+    sequence: !input brightness_stop_1
+  - conditions:
+    - '{{ command == ''brightness_move_up_2'' }}'
+    sequence: !input brightness_move_up_2
+  - conditions:
+    - '{{ command == ''brightness_move_down_2'' }}'
+    sequence: !input brightness_move_down_2
+  - conditions:
+    - '{{ command == ''brightness_stop_2'' }}'
+    sequence: !input brightness_stop_2
