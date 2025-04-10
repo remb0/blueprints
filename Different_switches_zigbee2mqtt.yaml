@@ -18,6 +18,7 @@ blueprint:
     ***Added:***
     20250410: Paulmann 501.34 and Aqara WXKG15LM (thanks: cspaeh Christoph))
     20250221: triple,quadruple,many added for WXKG01LM
+    20250221: triple,quadruple,many added for WXKG01LM
     20250111: Ikea added
 
     ***Compatibility list:***
@@ -200,6 +201,24 @@ blueprint:
           default: []
           selector:
             action: {}
+        triple:
+          name: triple click
+          description: Action to after triple click
+          default: []
+          selector:
+            action: {}    
+        quadruple:
+          name: quadruple click
+          description: Action to after quadruple click
+          default: []
+          selector:
+            action: {}    
+        many:
+          name: many click
+          description: Action to after many click
+          default: []
+          selector:
+            action: {}                                
         hold:
           name: hold
           description: Action after hold
@@ -1026,33 +1045,3 @@ action:
   - conditions:
     - '{{ command == ''recall_1'' }}'
     sequence: !input recall_1
-  - conditions:
-    - '{{ command == ''on_1'' }}'
-    sequence: !input on_1
-  - conditions:
-    - '{{ command == ''off_1'' }}'
-    sequence: !input off_1
-  - conditions:
-    - '{{ command == ''on_2'' }}'
-    sequence: !input on_2
-  - conditions:
-    - '{{ command == ''off_2'' }}'
-    sequence: !input off_2
-  - conditions:
-    - '{{ command == ''brightness_move_up_1'' }}'
-    sequence: !input brightness_move_up_1
-  - conditions:
-    - '{{ command == ''brightness_move_down_1'' }}'
-    sequence: !input brightness_move_down_1
-  - conditions:
-    - '{{ command == ''brightness_stop_1'' }}'
-    sequence: !input brightness_stop_1
-  - conditions:
-    - '{{ command == ''brightness_move_up_2'' }}'
-    sequence: !input brightness_move_up_2
-  - conditions:
-    - '{{ command == ''brightness_move_down_2'' }}'
-    sequence: !input brightness_move_down_2
-  - conditions:
-    - '{{ command == ''brightness_stop_2'' }}'
-    sequence: !input brightness_stop_2
