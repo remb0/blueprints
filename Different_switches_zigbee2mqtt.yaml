@@ -38,7 +38,7 @@ blueprint:
       name: switch
       description: Switch to use *
       selector:
-        action: {}
+        #action: {}
         entity:
           domain:
           - event
