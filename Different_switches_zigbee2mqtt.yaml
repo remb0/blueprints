@@ -38,6 +38,7 @@ blueprint:
       name: switch
       description: Switch to use *
       selector:
+        action: {}
         entity:
           domain:
           - event
@@ -653,66 +654,66 @@ blueprint:
       icon: mdi:lightbulb
       collapsed: true
       input:
-      on_1:
-        name: On 1
-        description: Action for on_1
-        default: []
-        selector:
-        action: {}
-      off_1:
-        name: Off 1
-        description: Action for off_1
-        default: []
-        selector:
-        action: {}
-      on_2:
-        name: On 2
-        description: Action for on_2
-        default: []
-        selector:
-        action: {}
-      off_2:
-        name: Off 2
-        description: Action for off_2
-        default: []
-        selector:
-        action: {}
-      brightness_move_up_1:
-        name: Brightness Move Up 1
-        description: Action for brightness_move_up_1
-        default: []
-        selector:
-        action: {}
-      brightness_move_down_1:
-        name: Brightness Move Down 1
-        description: Action for brightness_move_down_1
-        default: []
-        selector:
-        action: {}
-      brightness_stop_1:
-        name: Brightness Stop 1
-        description: Action for brightness_stop_1
-        default: []
-        selector:
-        action: {}
-      brightness_move_up_2:
-        name: Brightness Move Up 2
-        description: Action for brightness_move_up_2
-        default: []
-        selector:
-        action: {}
-      brightness_move_down_2:
-        name: Brightness Move Down 2
-        description: Action for brightness_move_down_2
-        default: []
-        selector:
-        action: {}
-      brightness_stop_2:
-        name: Brightness Stop 2
-        description: Action for brightness_stop_2
-        default: []
-        selector:
-        action: {}
+        on_1:
+          name: On 1
+          description: Action for on_1
+          default: []
+          selector:
+            action: {}
+        off_1:
+          name: Off 1
+          description: Action for off_1
+          default: []
+          selector:
+            action: {}
+        on_2:
+          name: On 2
+          description: Action for on_2
+          default: []
+          selector:
+            action: {}
+        off_2:
+          name: Off 2
+          description: Action for off_2
+          default: []
+          selector:
+            action: {}
+        brightness_move_up_1:
+          name: Brightness Move Up 1
+          description: Action for brightness_move_up_1
+          default: []
+          selector:
+            action: {}
+        brightness_move_down_1:
+          name: Brightness Move Down 1
+          description: Action for brightness_move_down_1
+          default: []
+          selector:
+            action: {}
+        brightness_stop_1:
+          name: Brightness Stop 1
+          description: Action for brightness_stop_1
+          default: []
+          selector:
+            action: {}
+        brightness_move_up_2:
+          name: Brightness Move Up 2
+          description: Action for brightness_move_up_2
+          default: []
+          selector:
+            action: {}
+        brightness_move_down_2:
+          name: Brightness Move Down 2
+          description: Action for brightness_move_down_2
+          default: []
+          selector:
+            action: {}
+        brightness_stop_2:
+          name: Brightness Stop 2
+          description: Action for brightness_stop_2
+          default: []
+          selector:
+            action: {}
 mode: parallel
 max_exceeded: silent
 trigger:
