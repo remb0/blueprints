@@ -5,7 +5,7 @@ blueprint:
   description: >-
     <div>
       <h2>🔔 Switches!!</h2>
-      <b>Version 0.91 Beta</b> | 🔗 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Github Link</a> | 💬 <a href="https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-xiaomi-opple-ikea-lidl-philips/823618" target="_blank">Community Topic</a>
+      <b>Version 0.92 Beta</b> | 🔗 <a href="https://github.com/remb0/blueprints/blob/main/Different_switches_zigbee2mqtt.yaml" target="_blank">Github Link</a> | 💬 <a href="https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-xiaomi-opple-ikea-lidl-philips/823618" target="_blank">Community Topic</a>
       </div>
       <br>   
     Control any switch you want from different brands and models. Goal is to support as much as possible.
@@ -20,6 +20,7 @@ blueprint:
     20250221: triple,quadruple,many added for WXKG01LM
     20250221: triple,quadruple,many added for WXKG01LM
     20250111: Ikea added
+    20250412: Added support for WXCJKG13LM to distinguish which button triggers a hold event
 
     ***Compatibility list:***
     Aqara: Aqara (double) rocker, WXKG07LM, WXKG15LM
@@ -747,6 +748,7 @@ condition:
 action:
 - variables:
     command: '{{ trigger.to_state.attributes.event_type }}'
+    button_attribute: '{{ trigger.to_state.attributes.get("button", "none") }}'
 - choose:
   - conditions:
     - '{{ command == ''on'' }}'
@@ -811,9 +813,6 @@ action:
   - conditions:
     - '{{ command == ''double'' }}'
     sequence: !input double
-  - conditions:
-    - '{{ command == ''hold'' }}'
-    sequence: !input hold
   - conditions:
     - '{{ command == ''triple'' }}'
     sequence: !input triple
@@ -914,22 +913,25 @@ action:
     - '{{ command == ''button_6_triple'' }}'
     sequence: !input button_6_triple
   - conditions:
-    - '{{ command == ''button_1_hold'' }}'
+    - '{{ command == ''hold'' and (button_attribute == ''none'' or not button_attribute.startswith(''button_'')) }}'
+    sequence: !input hold
+  - conditions:
+    - '{{ command == ''hold''  and button_attribute == ''button_1'' }}'
     sequence: !input button_1_hold
   - conditions:
-    - '{{ command == ''button_2_hold'' }}'
+    - '{{ command == ''hold''  and button_attribute == ''button_2'' }}'
     sequence: !input button_2_hold
   - conditions:
-    - '{{ command == ''button_3_hold'' }}'
+    - '{{ command == ''hold''  and button_attribute == ''button_3'' }}'
     sequence: !input button_3_hold
   - conditions:
-    - '{{ command == ''button_4_hold'' }}'
+    - '{{ command == ''hold''  and button_attribute == ''button_4'' }}'
     sequence: !input button_4_hold
   - conditions:
-    - '{{ command == ''button_5_hold'' }}'
+    - '{{ command == ''hold''  and button_attribute == ''button_5'' }}'
     sequence: !input button_5_hold
   - conditions:
-    - '{{ command == ''button_6_hold'' }}'
+    - '{{ command == ''hold''  and button_attribute == ''button_6'' }}'
     sequence: !input button_6_hold
   - conditions:
     - '{{ command == ''button_1_release'' }}'
