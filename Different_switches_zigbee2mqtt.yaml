@@ -208,6 +208,12 @@ blueprint:
           default: []
           selector:
             action: {}
+        long:
+          name: long
+          description: Action after long click
+          default: []
+          selector:
+            action: {}
         release:
           name: release
           description: Action after release
@@ -729,7 +735,7 @@ condition:
       ''brightness_move_up'',''brightness_move_down'',''brightness_stop'',''toggle'',''brightness_up_click'',''brightness_down_click'',
       ''brightness_up_hold'',''brightness_up_release'',''brightness_down_hold'',''brightness_down_release'',''toggle_hold'',''arrow_left_click'',
       ''arrow_left_hold'',''arrow_left_release'',''arrow_right_click'',''arrow_right_hold'',''arrow_right_release'',
-      ''single'',''double'',''hold'',''many'',''triple'',''quadruple'',''release'',''shake'',
+      ''single'',''double'',''hold'',''long'',''many'',''triple'',''quadruple'',''release'',''shake'',
       ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
       ''hold_left'',''hold_right'',''hold_both'',''triple_both'',
       ''button_1_single'', ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
@@ -814,6 +820,9 @@ action:
   - conditions:
     - '{{ command == ''hold'' }}'
     sequence: !input hold
+  - conditions:
+    - '{{ command == ''long'' }}'
+    sequence: !input long
   - conditions:
     - '{{ command == ''triple'' }}'
     sequence: !input triple
