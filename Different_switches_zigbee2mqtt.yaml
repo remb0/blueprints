@@ -720,6 +720,29 @@ blueprint:
           default: []
           selector:
             action: {}
+    lora_1_2_3_4_button:
+      name: Lora 1/2/3/4 Button
+      collapsed: true        
+      icon: mdi:buttons
+      input:    
+        1_single:
+          name: Button 1 - Single Press
+          description: Action for Button 1 Single Press
+          default: []
+          selector:
+            action: {}        
+        1_double:
+          name: Button 1 - Double Press
+          description: Action for Button 1 Double Press
+          default: []
+          selector:
+            action: {}        
+        1_hold:
+          name: Button 1 - Hold
+          description: Action for Button 1 Hold
+          default: []
+          selector:
+            action: {}        
 mode: parallel
 max_exceeded: silent
 trigger:
@@ -748,7 +771,8 @@ condition:
       ''right_hold_release'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',
       ''off_press_release'',''off_hold_release'',''up_press'',''up_hold'',''up_press_release'',''up_hold_release'',''down_press'',''down_hold'',
       ''down_press_release'',''down_hold_release'',''recall_0'',''recall_1'',
-      ''on_1'',''off_1'',''on_2'',''off_2'',''brightness_move_up_1'',''brightness_move_down_1'',''brightness_stop_1'',''brightness_move_up_2'',''brightness_move_down_2'',''brightness_stop_2''    
+      ''on_1'',''off_1'',''on_2'',''off_2'',''brightness_move_up_1'',''brightness_move_down_1'',''brightness_stop_1'',''brightness_move_up_2'',''brightness_move_down_2'',''brightness_stop_2'',
+      ''1_single'',''1_double'',''1_hold''
       ) }}'
 action:
 - variables:
@@ -1067,3 +1091,12 @@ action:
   - conditions:
     - '{{ command == ''brightness_stop_2'' }}'
     sequence: !input brightness_stop_2
+  - conditions:
+    - '{{ command == ''1_single'' }}'
+    sequence: !input 1_single
+  - conditions:
+    - '{{ command == ''1_double'' }}'
+    sequence: !input 1_double
+  - conditions:
+    - '{{ command == ''1_hold'' }}'
+    sequence: !input 1_hold
