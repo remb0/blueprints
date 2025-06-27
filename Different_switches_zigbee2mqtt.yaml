@@ -1,5 +1,5 @@
 blueprint:
-  name: Different_switches_zigbee2mqtt
+  name: Different_switches_zigbee2mqtt_marcolino
   source_url: https://raw.githubusercontent.com/remb0/blueprints/refs/heads/main/Different_switches_zigbee2mqtt.yaml
   author: remb0
   description: >-
