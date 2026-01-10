@@ -1,53 +1,55 @@
-# Control Any Switch
+# 🎮 Control "Any" Switch
+> One Blueprint to rule them all! 
 
-Control any switch you want from different brands and models. My goal is to support as many as possible.
-Feel free to contribute in topics or on GitHub. Provide the brand, model, and event types like: single_left, single_right.
-
-Todo:
-- Improve descriptions/guides and topic
-- icons for for the different switches
-- Better readme (how to obtain the different event types)
-:white_check_mark: Collapsible based on choice of what kind of switch you use. (a dropdown so the right switch's options will be collapsed)
-- Other ideas, please feel free to ask or give tips.
-- Add more switches (give me brand, model, and options/event types )
-  (in develop tools, like: event_types: hold, button_1_release, button_1_single, button_1_double, button_1_triple, button_2_release, button_2_single, button_2_double, etc. etc...)
-- A tutorial article on my site [https://gadget-freakz.com](https://gadget-freakz.com)
+Control switches from different brands and models with a single, powerful Home Assistant Blueprint.
 
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fremb0%2Fblueprints%2Fblob%2Fmain%2FDifferent_switches_zigbee2mqtt.yaml)
- 
 
-     ## Requirements
-    **Note:** Use zigbee2MQTT version 2025.1 or above without legacy options. 
+---
 
-    ## Changelog
-    ***Added:***
-    WXKG12LM
-    Philips
-    Aqara WXKG07LM for DAVIZINHO (Aqara_switches)  
+## ✨ Features
+*   **Universal Support**: Works with Aqara, Ikea, Philips Hue, Tuya, Paulmann, and Opple switches.
+*   **Clean UI**: All inputs feature helpful icons and descriptions.
+*   **Collapsible Sections**: Only see the settings for the switch you are actually using.
+*   **Parallel Actions**: Supports multiple actions running simultaneously.
 
-    ***Compatibility list:***
-    Aqara: Aqara (double) rocker, WXKG07LM, 
-    Aqara: single switches: WXKG12LM, WXKG01LM (single switch)
-    Ikea:  E1743
-    Lidl: HG08164 (single switch)
-    Opple: WXCJKG12LM, WXCJKG13LM
-    Philips: 929003017102, 929002398602, 324131092621
+## 🤝 Compatibility List
 
+| Brand | Model(s) | Notes |
+| :--- | :--- | :--- |
+| **Aqara** | **WXKG01LM**, **WXKG12LM** | Single Button Switches |
+| | **WXKG07LM**, **WXKG15LM** | Rockers (2-gang) |
+| | **E1 3-Gang (ZNQBKG31LM)** | *New!* Full support for Left, Center, Right |
+| | **E1 2-Gang (QBKG39LM)** | *New!* Left, Right |
+| **Ikea** | **E1743** (Tradfri On/Off) | |
+| | **E1810 / E1812** | 5-Button Remote |
+| | **E1524 / E2001 / E2002** | Round Remotes |
+| **Philips Hue**| **Tap Dial (RDM002)** | *New!* Buttons + Dial Rotation |
+| | **Dimmer V2 (929002398602)** | |
+| | **Wall Switch Module** | |
+| **Tuya** | **TS0042** | 2-Button Scene Switch |
+| **Paulmann** | **501.34** | Remote Control |
+| **Opple** | **WXCJKG12LM** (4-button) | |
+| | **WXCJKG13LM** (6-button) | |
+| **Lidl** | **HG08164** | Single Switch |
 
-**Update the Blueprint**  
-If the blueprint is updated on github, you have to re-import it and reload blueprints in Home Assistant:
-- Go to **Settings** > **automations and scenes**.
-- Go to **Blueprints** on the top bar.
-- search for the blueprint of remb0 and click on the 3 dots on the end of the line.
-- Click the **Reload/import Blueprints** .
-- If necessary, reapply the blueprint to an automation:
-- Navigate to **Settings** > **Automations & Scenes**.
-- Select the automation using the blueprint.
-- Make any required updates and save.
+## ⚙️ Requirements
+*   **Zigbee2MQTT**: Version 2025.1 or newer.
+*   **Home Assistant**: 2024.12.0 or newer.
 
-[![Home Assistant Community Topic]](https://community.home-assistant.io/t/zigbee2mqtt-2-0-different-switches-aqara-opple-ikea/823618)
+## 🚀 How to Update
+If you already have this blueprint and want to get the latest features (Icons, New Device Support):
+1.  Go to **Settings** > **Automations & Scenes** > **Blueprints**.
+2.  Find the `Different_switches_zigbee2mqtt` blueprint.
+3.  Click the **three dots** and select **Re-import Blueprint**.
+4.  Reload your Automations.
 
+## 📝 Roadmap
+- [x] Add Icons to all inputs for better visual identification.
+- [x] Make sections collapsible to declutter the UI.
+- [x] Add support for Aqara E1 Series.
+- [ ] Add explicit support for new Sonoff switches.
 
+---
 
 <a href="https://www.buymeacoffee.com/remb0" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-
