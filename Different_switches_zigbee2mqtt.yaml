@@ -209,6 +209,12 @@ blueprint:
           default: []
           selector:
             action: {}
+        long:
+          name: long
+          description: Action after long click
+          default: []
+          selector:
+            action: {}
         release:
           name: release
           description: Action after release
@@ -715,6 +721,84 @@ blueprint:
           default: []
           selector:
             action: {}
+    #Lora Button from Aliexpress 1 or 2 or 3 or 4 Button
+    lora_tap_1_2_3_4_button:
+      name: Lora Tap Multi Button from 1 to 4 Channel
+      collapsed: true        
+      icon: mdi:gesture-tap-button
+      input:    
+        1_single:
+          name: Button 1 - Single Press
+          description: Action for Button 1 Single Press
+          default: []
+          selector:
+            action: {}        
+        1_double:
+          name: Button 1 - Double Press
+          description: Action for Button 1 Double Press
+          default: []
+          selector:
+            action: {}        
+        1_hold:
+          name: Button 1 - Hold
+          description: Action for Button 1 Hold
+          default: []
+          selector:
+            action: {} 
+        2_single:
+          name: Button 2 - Single Press
+          description: Action for Button 2 Single Press
+          default: []
+          selector:
+            action: {}        
+        2_double:
+          name: Button 2 - Double Press
+          description: Action for Button 2 Double Press
+          default: []
+          selector:
+            action: {}        
+        2_hold:
+          name: Button 2 - Hold
+          description: Action for Button 2 Hold
+          default: []
+          selector:
+            action: {}        
+        3_single:
+          name: Button 3 - Single Press
+          description: Action for Button 3 Single Press
+          default: []
+          selector:
+            action: {}        
+        3_double:
+          name: Button 3 - Double Press
+          description: Action for Button 3 Double Press
+          default: []
+          selector:
+            action: {}        
+        3_hold:
+          name: Button 3 - Hold
+          description: Action for Button 3 Hold
+          default: []
+          selector:
+            action: {}        
+        4_single:
+          name: Button 4 - Single Press
+          description: Action for Button 4 Single Press
+          default: []
+          selector:
+            action: {}        
+        4_double:
+          name: Button 4 - Double Press
+          description: Action for Button 4 Double Press
+          default: []
+          selector:
+            action: {}        
+        4_hold:
+          name: Button 4 - Hold
+          description: Action for Button 4 Hold
+          default: []
+          selector:
+            action: {}        
 mode: parallel
 max_exceeded: silent
 trigger:
@@ -730,7 +814,7 @@ condition:
       ''brightness_move_up'',''brightness_move_down'',''brightness_stop'',''toggle'',''brightness_up_click'',''brightness_down_click'',
       ''brightness_up_hold'',''brightness_up_release'',''brightness_down_hold'',''brightness_down_release'',''toggle_hold'',''arrow_left_click'',
       ''arrow_left_hold'',''arrow_left_release'',''arrow_right_click'',''arrow_right_hold'',''arrow_right_release'',
-      ''single'',''double'',''hold'',''many'',''triple'',''quadruple'',''release'',''shake'',
+      ''single'',''double'',''hold'',''long'',''many'',''triple'',''quadruple'',''release'',''shake'',
       ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
       ''hold_left'',''hold_right'',''hold_both'',''triple_both'',
       ''button_1_single'', ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
@@ -743,7 +827,8 @@ condition:
       ''right_hold_release'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',
       ''off_press_release'',''off_hold_release'',''up_press'',''up_hold'',''up_press_release'',''up_hold_release'',''down_press'',''down_hold'',
       ''down_press_release'',''down_hold_release'',''recall_0'',''recall_1'',
-      ''on_1'',''off_1'',''on_2'',''off_2'',''brightness_move_up_1'',''brightness_move_down_1'',''brightness_stop_1'',''brightness_move_up_2'',''brightness_move_down_2'',''brightness_stop_2''    
+      ''on_1'',''off_1'',''on_2'',''off_2'',''brightness_move_up_1'',''brightness_move_down_1'',''brightness_stop_1'',''brightness_move_up_2'',''brightness_move_down_2'',''brightness_stop_2'',
+      ''1_single'',''1_double'',''1_hold'',''2_single'',''2_double'',''2_hold'',''3_single'',''3_double'',''3_hold'',''4_single'',''4_double'',''4_hold''
       ) }}'
 action:
 - variables:
@@ -813,6 +898,12 @@ action:
   - conditions:
     - '{{ command == ''double'' }}'
     sequence: !input double
+  - conditions:
+    - '{{ command == ''hold'' }}'
+    sequence: !input hold
+  - conditions:
+    - '{{ command == ''long'' }}'
+    sequence: !input long
   - conditions:
     - '{{ command == ''triple'' }}'
     sequence: !input triple
@@ -1060,3 +1151,39 @@ action:
   - conditions:
     - '{{ command == ''brightness_stop_2'' }}'
     sequence: !input brightness_stop_2
+  - conditions:
+    - '{{ command == ''1_single'' }}'
+    sequence: !input 1_single
+  - conditions:
+    - '{{ command == ''1_double'' }}'
+    sequence: !input 1_double
+  - conditions:
+    - '{{ command == ''1_hold'' }}'
+    sequence: !input 1_hold
+  - conditions:
+    - '{{ command == ''2_single'' }}'
+    sequence: !input 2_single
+  - conditions:
+    - '{{ command == ''2_double'' }}'
+    sequence: !input 2_double
+  - conditions:
+    - '{{ command == ''2_hold'' }}'
+    sequence: !input 2_hold
+  - conditions:
+    - '{{ command == ''3_single'' }}'
+    sequence: !input 3_single
+  - conditions:
+    - '{{ command == ''3_double'' }}'
+    sequence: !input 3_double
+  - conditions:
+    - '{{ command == ''3_hold'' }}'
+    sequence: !input 3_hold
+  - conditions:
+    - '{{ command == ''4_single'' }}'
+    sequence: !input 4_single
+  - conditions:
+    - '{{ command == ''4_double'' }}'
+    sequence: !input 4_double
+  - conditions:
+    - '{{ command == ''4_hold'' }}'
+    sequence: !input 4_hold
