@@ -322,53 +322,52 @@ action:
   - variables:
       command: "{{ trigger.to_state.attributes.event_type }}"
   - choose:
-      # Basic IKEA / Standard
+      # --- IKEA / Basic ---
       - conditions: "{{ command == 'on' }}"
         sequence: !input aan
       - conditions: "{{ command == 'off' }}"
         sequence: !input uit
       - conditions: "{{ command == 'toggle' }}"
         sequence: !input toggle
-      
-      # Single/Multi click
+
+      # --- Aqara & Single Buttons ---
       - conditions: "{{ command == 'single' }}"
         sequence: !input single
       - conditions: "{{ command == 'double' }}"
         sequence: !input double
+      - conditions: "{{ command == 'triple' }}"
+        sequence: !input triple
       - conditions: "{{ command == 'hold' }}"
         sequence: !input hold
       - conditions: "{{ command == 'release' }}"
         sequence: !input release
 
-      # Aqara 2-Gang logic
+      # --- Aqara 2-Gang & 3-Gang Mix (De fix voor de error) ---
       - conditions: "{{ command == 'single_left' }}"
         sequence:
           - choose:
-            - conditions: "{{ true }}" # Voer beide uit indien gedefinieerd
-              sequence: 
-                - !input single_left
-                - !input aqara_3_left_single
+              - conditions: "{{ single_left != [] }}"
+                sequence: !input single_left
+          - choose:
+              - conditions: "{{ aqara_3_left_single != [] }}"
+                sequence: !input aqara_3_left_single
+
       - conditions: "{{ command == 'single_right' }}"
         sequence:
           - choose:
-            - conditions: "{{ true }}"
-              sequence:
-                - !input single_right
-                - !input aqara_3_right_single
+              - conditions: "{{ single_right != [] }}"
+                sequence: !input single_right
+          - choose:
+              - conditions: "{{ aqara_3_right_single != [] }}"
+                sequence: !input aqara_3_right_single
 
-      # Aqara 3-Gang (Center & Combo)
+      # --- Aqara 3-Gang Specific ---
       - conditions: "{{ command == 'single_center' }}"
         sequence: !input aqara_3_center_single
       - conditions: "{{ command == 'double_center' }}"
         sequence: !input aqara_3_center_double
-      - conditions: "{{ command == 'single_left_center' }}"
-        sequence: !input aqara_3_left_center_single
-      - conditions: "{{ command == 'single_left_right' }}"
-        sequence: !input aqara_3_left_right_single
-      - conditions: "{{ command == 'single_center_right' }}"
-        sequence: !input aqara_3_center_right_single
 
-      # Tuya TS0042
+      # --- Tuya TS0042 ---
       - conditions: "{{ command == '1_single' }}"
         sequence: !input tuya_1_single
       - conditions: "{{ command == '1_double' }}"
@@ -382,13 +381,11 @@ action:
       - conditions: "{{ command == '2_hold' }}"
         sequence: !input tuya_2_hold
 
-      # Hue Tap Dial
+      # --- Hue Tap Dial ---
       - conditions: "{{ command == 'button_1_press' }}"
         sequence: !input button_1_press
-      - conditions: "{{ command == 'button_1_press_release' or command == 'button_1_hold_release' }}"
+      - conditions: "{{ command in ['button_1_press_release', 'button_1_hold_release'] }}"
         sequence: !input button_1_release
-      - conditions: "{{ command == 'button_1_hold' }}"
-        sequence: !input button_1_hold
       - conditions: "{{ command in ['dial_rotate_left_step', 'dial_rotate_left_slow'] }}"
         sequence: !input dial_rotate_left
       - conditions: "{{ command in ['dial_rotate_right_step', 'dial_rotate_right_slow'] }}"
