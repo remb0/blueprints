@@ -1,1355 +1,395 @@
 blueprint:
   name: Different_switches_zigbee2mqtt_ULTIMATE
-  source_url: https://raw.githubusercontent.com/remb0/blueprints/refs/heads/main/Different_switches_zigbee2mqtt.yaml
-  author: remb0 (modified by Gemini)
   description: >-
-    <div>
-      <h2>🔔 Switches!!</h2>
-      <b>Version 0.95 Mod</b>
-      </div>
-      <br>   
     Control any switch you want from different brands and models. 
-    
-    ## 🔧 Changelog:
-    20260110: Added Tuya TS0042, Aqara E1 3-Gang (ZNQBKG31LM), Aqara E1 2-Gang (QBKG39LM), Philips Hue Tap Dial.
-    20250410: Paulmann 501.34 and Aqara WXKG15LM
-    20250221: triple,quadruple,many added for WXKG01LM
-
-    ***Compatibility list (Added):***
-    Philips Hue: Tap Dial Switch (RDM002)
-    Tuya: TS0042 (2 button scene switch)
-    Aqara: E1 Wall Switches (ZNQBKG31LM 3-gang, QBKG39LM 2-gang)
-
+    Version 0.95 Mod.
   domain: automation
   homeassistant:
     min_version: 2024.12.0
   input:
     input_switch:
       name: switch
-      description: Switch to use *
+      description: Switch to use (Event entity from MQTT)
       selector:
         entity:
           domain:
-          - event
+            - event
           integration: mqtt
           multiple: false
 
-# --- EXISTING SECTIONS (Ikea, Single) ---
-    Ikea_sensor:
-      name: Ikea sensor
-      description:  Compatiible with E1743, E2201,e2202,E1812,E1524,E1810
-      icon: mdi:knob
-      collapsed: true
-      input:
-        aan:
-          name: Ikea On button
-          description: "Pressing the On button"
-          icon: mdi:light-switch
-          default: []
-          selector: { action: {} }
-        uit:
-          name: Ikea Off button
-          description: "Pressing the Off button"
-          icon: mdi:light-switch-off
-          default: []
-          selector: { action: {} }
-        brightness_move_up: 
-          name: Brightness Move Up
-          description: "Long press / Hold Up button"
-          icon: mdi:brightness-5
-          default: []
-          selector: { action: {} }
-        brightness_move_down: 
-          name: Brightness Move Down
-          description: "Long press / Hold Down button"
-          icon: mdi:brightness-7
-          default: []
-          selector: { action: {} }
-        brightness_stop: 
-          name: Brightness Stop
-          description: "Release Up/Down button"
-          icon: mdi:stop
-          default: []
-          selector: { action: {} }
-        toggle: 
-          name: Toggle
-          description: "Toggle button press"
-          icon: mdi:toggle-switch
-          default: []
-          selector: { action: {} }
-        brightness_up_click: 
-          name: Brightness Up Click
-          description: "Short press Up"
-          icon: mdi:brightness-5
-          default: []
-          selector: { action: {} }
-        brightness_down_click: 
-          name: Brightness Down Click
-          description: "Short press Down"
-          icon: mdi:brightness-7
-          default: []
-          selector: { action: {} }
-        brightness_up_hold: 
-          name: Brightness Up Hold
-          default: []
-          selector: { action: {} }
-        brightness_up_release: 
-          name: Brightness Up Release
-          default: []
-          selector: { action: {} }
-        brightness_down_hold: 
-          name: Brightness Down Hold
-          default: []
-          selector: { action: {} }
-        brightness_down_release: 
-          name: Brightness Down Release
-          default: []
-          selector: { action: {} }
-        toggle_hold: 
-          name: Toggle Hold
-          default: []
-          selector: { action: {} }
-        arrow_left_click: 
-          name: Arrow Left Click
-          description: "Short press Left"
-          icon: mdi:arrow-left
-          default: []
-          selector: { action: {} }
-        arrow_left_hold: 
-          name: Arrow Left Hold
-          default: []
-          selector: { action: {} }
-        arrow_left_release: 
-          name: Arrow Left Release
-          default: []
-          selector: { action: {} }
-        arrow_right_click: 
-          name: Arrow Right Click
-          description: "Short press Right"
-          icon: mdi:arrow-right
-          default: []
-          selector: { action: {} }
-        arrow_right_hold: 
-          name: Arrow Right Hold
-          default: []
-          selector: { action: {} }
-        arrow_right_release: 
-          name: Arrow Right Release
-          default: []
-          selector: { action: {} }
+    # --- IKEA SECTION ---
+    aan:
+      name: Ikea On button
+      default: []
+      selector: { action: {} }
+    uit:
+      name: Ikea Off button
+      default: []
+      selector: { action: {} }
+    brightness_move_up:
+      name: Brightness Move Up
+      default: []
+      selector: { action: {} }
+    brightness_move_down:
+      name: Brightness Move Down
+      default: []
+      selector: { action: {} }
+    brightness_stop:
+      name: Brightness Stop
+      default: []
+      selector: { action: {} }
+    toggle:
+      name: Toggle
+      default: []
+      selector: { action: {} }
+    brightness_up_click:
+      name: Brightness Up Click
+      default: []
+      selector: { action: {} }
+    brightness_down_click:
+      name: Brightness Down Click
+      default: []
+      selector: { action: {} }
+    brightness_up_hold:
+      name: Brightness Up Hold
+      default: []
+      selector: { action: {} }
+    brightness_up_release:
+      name: Brightness Up Release
+      default: []
+      selector: { action: {} }
+    brightness_down_hold:
+      name: Brightness Down Hold
+      default: []
+      selector: { action: {} }
+    brightness_down_release:
+      name: Brightness Down Release
+      default: []
+      selector: { action: {} }
+    toggle_hold:
+      name: Toggle Hold
+      default: []
+      selector: { action: {} }
+    arrow_left_click:
+      name: Arrow Left Click
+      default: []
+      selector: { action: {} }
+    arrow_left_hold:
+      name: Arrow Left Hold
+      default: []
+      selector: { action: {} }
+    arrow_left_release:
+      name: Arrow Left Release
+      default: []
+      selector: { action: {} }
+    arrow_right_click:
+      name: Arrow Right Click
+      default: []
+      selector: { action: {} }
+    arrow_right_hold:
+      name: Arrow Right Hold
+      default: []
+      selector: { action: {} }
+    arrow_right_release:
+      name: Arrow Right Release
+      default: []
+      selector: { action: {} }
 
-    single_switches:
-      name: Single Switches
-      icon: mdi:gesture-double-tap
-      description: Aqara (WXKG01LM, WXKG12LM)
-      collapsed: true
-      input:
-        single:
-          name: Single click
-          description: "Single click action"
-          icon: mdi:gesture-tap
-          default: []
-          selector: { action: {} }
-        double:
-          name: double click
-          description: "Double click action"
-          icon: mdi:gesture-double-tap
-          default: []
-          selector: { action: {} }
-        triple:
-          name: triple click
-          description: "Triple click action"
-          icon: mdi:numeric-3-box
-          default: []
-          selector: { action: {} }    
-        quadruple:
-          name: quadruple click
-          description: "Quadruple click action"
-          icon: mdi:numeric-4-box
-          default: []
-          selector: { action: {} }    
-        many:
-          name: many click
-          description: "Action for 5+ clicks"
-          icon: mdi:numeric-5-box-multiple
-          default: []
-          selector: { action: {} }                                
-        hold:
-          name: hold
-          description: "Hold action"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
-        long:
-          name: long
-          description: "Long press action"
-          icon: mdi:clock-time-three
-          default: []
-          selector: { action: {} }
-        release:
-          name: release
-          description: "Release after hold"
-          icon: mdi:gesture-tap-button
-          default: []
-          selector: { action: {} }
-        shake:
-          name: shake
-          description: "Shake action"
-          icon: mdi:vibrate
-          default: []
-          selector: { action: {} }
+    # --- SINGLE/AQARA SECTION ---
+    single:
+      name: Single click
+      default: []
+      selector: { action: {} }
+    double:
+      name: Double click
+      default: []
+      selector: { action: {} }
+    triple:
+      name: Triple click
+      default: []
+      selector: { action: {} }
+    quadruple:
+      name: Quadruple click
+      default: []
+      selector: { action: {} }
+    many:
+      name: Many click
+      default: []
+      selector: { action: {} }
+    hold:
+      name: Hold
+      default: []
+      selector: { action: {} }
+    long:
+      name: Long press
+      default: []
+      selector: { action: {} }
+    release:
+      name: Release
+      default: []
+      selector: { action: {} }
+    shake:
+      name: Shake
+      default: []
+      selector: { action: {} }
 
-# --- AQARA STANDARD (Also covers E1 2-Gang QBKG39LM) ---
-    Aqara_switches:
-      name: Aqara 2-Gang / Rockers
-      description: WXKG07LM, WXKG15LM, E1 2-Gang (QBKG39LM)
-      collapsed: true
-      icon: mdi:light-switch-off
-      input:
-        single_left:
-          name: Left button
-          description: "Left button single press"
-          icon: mdi:arrow-left-bold
-          default: []
-          selector: { action: {} }
-        single_right:
-          name: Right button
-          description: "Right button single press"
-          icon: mdi:arrow-right-bold
-          default: []
-          selector: { action: {} }
-        hold_left:
-          name: Hold Left button
-          description: "Left button hold"
-          icon: mdi:arrow-left-bold-circle
-          default: []
-          selector: { action: {} }
-        hold_right:
-          name: Hold Right button
-          description: "Right button hold"
-          icon: mdi:arrow-right-bold-circle
-          default: []
-          selector: { action: {} }
-        hold_both:
-          name: Hold both buttons
-          description: "Hold both buttons"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
-        single_both:
-          name: single both buttons
-          description: "Single press both buttons"
-          icon: mdi:gesture-tap
-          default: []
-          selector: { action: {} }
-        double_left:
-          name: double Left button
-          description: "Double press Left"
-          icon: mdi:arrow-left-bold-outline
-          default: []
-          selector: { action: {} }
-        double_right:
-          name: double Right button
-          description: "Double press Right"
-          icon: mdi:arrow-right-bold-outline
-          default: []
-          selector: { action: {} }
-        double_both:
-          name: double both buttons
-          description: "Double press both"
-          icon: mdi:gesture-double-tap
-          default: []
-          selector: { action: {} }
-        triple_both :
-          name: Triple both button
-          description: "Triple press both"
-          icon: mdi:numeric-3-box-multiple
-          default: []
-          selector: { action: {} }            
+    # --- AQARA 2-GANG / ROCKERS ---
+    single_left:
+      name: Left button single
+      default: []
+      selector: { action: {} }
+    single_right:
+      name: Right button single
+      default: []
+      selector: { action: {} }
+    hold_left:
+      name: Left button hold
+      default: []
+      selector: { action: {} }
+    hold_right:
+      name: Right button hold
+      default: []
+      selector: { action: {} }
+    hold_both:
+      name: Hold both buttons
+      default: []
+      selector: { action: {} }
+    single_both:
+      name: Single both buttons
+      default: []
+      selector: { action: {} }
+    double_left:
+      name: Double Left button
+      default: []
+      selector: { action: {} }
+    double_right:
+      name: Double Right button
+      default: []
+      selector: { action: {} }
+    double_both:
+      name: Double both buttons
+      default: []
+      selector: { action: {} }
+    triple_both:
+      name: Triple both button
+      default: []
+      selector: { action: {} }
 
-# --- NEW: AQARA 3-GANG ---
-    Aqara_3_gang:
-      name: Aqara 3-Gang (E1 ZNQBKG31LM)
-      description: Includes Center button logic
-      collapsed: true
-      icon: mdi:view-column
-      input:
-        # Re-using Left/Right inputs from above is tricky in UI, creating specific ones for 3-gang to be safe
-        aqara_3_left_single:
-          name: Left - Single
-          description: "Left button single"
-          icon: mdi:arrow-left
-          default: []
-          selector: { action: {} }
-        aqara_3_left_double:
-          name: Left - Double
-          description: "Left button double"
-          icon: mdi:arrow-left-bold-outline
-          default: []
-          selector: { action: {} }
-        aqara_3_center_single:
-          name: Center - Single
-          description: "Center button single"
-          icon: mdi:record-circle-outline
-          default: []
-          selector: { action: {} }
-        aqara_3_center_double:
-          name: Center - Double
-          description: "Center button double"
-          icon: mdi:record-circle
-          default: []
-          selector: { action: {} }
-        aqara_3_right_single:
-          name: Right - Single
-          description: "Right button single"
-          icon: mdi:arrow-right
-          default: []
-          selector: { action: {} }
-        aqara_3_right_double:
-          name: Right - Double
-          description: "Right button double"
-          icon: mdi:arrow-right-bold-outline
-          default: []
-          selector: { action: {} }
-        # Combinations (E1 supports these)
-        aqara_3_left_center_single:
-           name: Left + Center - Single
-           default: []
-           selector: { action: {} }
-        aqara_3_left_right_single:
-           name: Left + Right - Single
-           default: []
-           selector: { action: {} }
-        aqara_3_center_right_single:
-           name: Center + Right - Single
-           default: []
-           selector: { action: {} }
+    # --- AQARA 3-GANG (E1) ---
+    aqara_3_left_single:
+      name: 3-Gang Left Single
+      default: []
+      selector: { action: {} }
+    aqara_3_left_double:
+      name: 3-Gang Left Double
+      default: []
+      selector: { action: {} }
+    aqara_3_center_single:
+      name: 3-Gang Center Single
+      default: []
+      selector: { action: {} }
+    aqara_3_center_double:
+      name: 3-Gang Center Double
+      default: []
+      selector: { action: {} }
+    aqara_3_right_single:
+      name: 3-Gang Right Single
+      default: []
+      selector: { action: {} }
+    aqara_3_right_double:
+      name: 3-Gang Right Double
+      default: []
+      selector: { action: {} }
+    aqara_3_left_center_single:
+      name: 3-Gang Left+Center Single
+      default: []
+      selector: { action: {} }
+    aqara_3_left_right_single:
+      name: 3-Gang Left+Right Single
+      default: []
+      selector: { action: {} }
+    aqara_3_center_right_single:
+      name: 3-Gang Center+Right Single
+      default: []
+      selector: { action: {} }
 
-# --- NEW: TUYA TS0042 ---
-    Tuya_TS0042:
-      name: Tuya TS0042 (2-Button Scene)
-      description: Triggers 1_single, 2_single, etc.
-      collapsed: true
-      icon: mdi:button-cursor
-      input:
-        tuya_1_single:
-          name: Button 1 - Single
-          description: "Button 1 Single"
-          icon: mdi:numeric-1-box
-          default: []
-          selector: { action: {} }
-        tuya_1_double:
-          name: Button 1 - Double
-          description: "Button 1 Double"
-          icon: mdi:numeric-1-box-multiple
-          default: []
-          selector: { action: {} }
-        tuya_1_hold:
-          name: Button 1 - Hold
-          description: "Button 1 Hold"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
-        tuya_2_single:
-          name: Button 2 - Single
-          description: "Button 2 Single"
-          icon: mdi:numeric-2-box
-          default: []
-          selector: { action: {} }
-        tuya_2_double:
-          name: Button 2 - Double
-          description: "Button 2 Double"
-          icon: mdi:numeric-2-box-multiple
-          default: []
-          selector: { action: {} }
-        tuya_2_hold:
-          name: Button 2 - Hold
-          description: "Button 2 Hold"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
+    # --- TUYA TS0042 ---
+    tuya_1_single:
+      name: Tuya B1 Single
+      default: []
+      selector: { action: {} }
+    tuya_1_double:
+      name: Tuya B1 Double
+      default: []
+      selector: { action: {} }
+    tuya_1_hold:
+      name: Tuya B1 Hold
+      default: []
+      selector: { action: {} }
+    tuya_2_single:
+      name: Tuya B2 Single
+      default: []
+      selector: { action: {} }
+    tuya_2_double:
+      name: Tuya B2 Double
+      default: []
+      selector: { action: {} }
+    tuya_2_hold:
+      name: Tuya B2 Hold
+      default: []
+      selector: { action: {} }
 
-# --- OPPLE ---                                                                                           
-    Opple_switches:
-      name: Opple switches
-      collapsed: true
-      icon: mdi:dip-switch
-      input:
-        button_1_single:
-          name: B1 Single
-          description: "Button 1 Single"
-          icon: mdi:numeric-1-box
-          default: []
-          selector: { action: {} }
-        button_1_double:
-          name: B1 Double
-          description: "Button 1 Double"
-          icon: mdi:numeric-1-box-multiple
-          default: []
-          selector: { action: {} }
-        button_1_triple:
-          name: B1 Triple
-          description: "Button 1 Triple"
-          icon: mdi:numeric-1-box-multiple
-          default: []
-          selector: { action: {} }
-        button_1_hold:
-          name: B1 Hold
-          description: "Button 1 Hold"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
-        button_1_release:
-          name: B1 Release
-          description: "Button 1 Release"
-          icon: mdi:gesture-tap-button
-          default: []
-          selector: { action: {} }
-        button_2_single:
-          name: B2 Single
-          description: "Button 2 Single"
-          icon: mdi:numeric-2-box
-          default: []
-          selector: { action: {} }
-        button_2_double:
-          name: B2 Double
-          description: "Button 2 Double"
-          icon: mdi:numeric-2-box-multiple
-          default: []
-          selector: { action: {} }
-        button_2_triple:
-          name: B2 Triple
-          description: "Button 2 Triple"
-          icon: mdi:numeric-2-box-multiple
-          default: []
-          selector: { action: {} }
-        button_2_hold:
-          name: B2 Hold
-          description: "Button 2 Hold"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
-        button_2_release:
-          name: B2 Release
-          description: "Button 2 Release"
-          icon: mdi:gesture-tap-button
-          default: []
-          selector: { action: {} }
-        button_3_single:
-          name: B3 Single
-          description: "Button 3 Single"
-          icon: mdi:numeric-3-box
-          default: []
-          selector: { action: {} }
-        button_3_double:
-          name: B3 Double
-          description: "Button 3 Double"
-          icon: mdi:numeric-3-box-multiple
-          default: []
-          selector: { action: {} }
-        button_3_triple:
-          name: B3 Triple
-          description: "Button 3 Triple"
-          icon: mdi:numeric-3-box-multiple
-          default: []
-          selector: { action: {} }
-        button_3_hold:
-          name: B3 Hold
-          description: "Button 3 Hold"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
-        button_3_release:
-          name: B3 Release
-          description: "Button 3 Release"
-          icon: mdi:gesture-tap-button
-          default: []
-          selector: { action: {} }
-        button_4_single:
-          name: B4 Single
-          description: "Button 4 Single"
-          icon: mdi:numeric-4-box
-          default: []
-          selector: { action: {} }
-        button_4_double:
-          name: B4 Double
-          description: "Button 4 Double"
-          icon: mdi:numeric-4-box-multiple
-          default: []
-          selector: { action: {} }
-        button_4_triple:
-          name: B4 Triple
-          description: "Button 4 Triple"
-          icon: mdi:numeric-4-box-multiple
-          default: []
-          selector: { action: {} }
-        button_4_hold:
-          name: B4 Hold
-          description: "Button 4 Hold"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
-        button_4_release:
-          name: B4 Release
-          description: "Button 4 Release"
-          icon: mdi:gesture-tap-button
-          default: []
-          selector: { action: {} }
-        button_5_single:
-          name: B5 Single
-          description: "Button 5 Single"
-          icon: mdi:numeric-5-box
-          default: []
-          selector: { action: {} }
-        button_5_double:
-          name: B5 Double
-          description: "Button 5 Double"
-          icon: mdi:numeric-5-box-multiple
-          default: []
-          selector: { action: {} }
-        button_5_triple:
-          name: B5 Triple
-          description: "Button 5 Triple"
-          icon: mdi:numeric-5-box-multiple
-          default: []
-          selector: { action: {} }
-        button_5_hold:
-          name: B5 Hold
-          description: "Button 5 Hold"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
-        button_5_release:
-          name: B5 Release
-          description: "Button 5 Release"
-          icon: mdi:gesture-tap-button
-          default: []
-          selector: { action: {} }
-        button_6_single:
-          name: B6 Single
-          description: "Button 6 Single"
-          icon: mdi:numeric-6-box
-          default: []
-          selector: { action: {} }
-        button_6_double:
-          name: B6 Double
-          description: "Button 6 Double"
-          icon: mdi:numeric-6-box-multiple
-          default: []
-          selector: { action: {} }
-        button_6_triple:
-          name: B6 Triple
-          description: "Button 6 Triple"
-          icon: mdi:numeric-6-box-multiple
-          default: []
-          selector: { action: {} }
-        button_6_hold:
-          name: B6 Hold
-          description: "Button 6 Hold"
-          icon: mdi:gesture-tap-hold
-          default: []
-          selector: { action: {} }
-        button_6_release:
-          name: B6 Release
-          description: "Button 6 Release"
-          icon: mdi:gesture-tap-button
-          default: []
-          selector: { action: {} }
-
-# --- PHILIPS ---    
-    Philips_switches:
-      name: Philips
-      description: Compatible with 929003017102, 929002398602, 324131092621
-      icon: mdi:cog
-      collapsed: true
-      input:
-        left_press:
-          name: Left Press
-          description: "Left button press"
-          icon: mdi:arrow-left
-          default: []
-          selector: { action: {} }
-        left_press_release:
-          name: Left Release
-          description: "Left button release"
-          icon: mdi:arrow-left-bold-outline
-          default: []
-          selector: { action: {} }
-        right_press:
-          name: Right Press
-          description: "Right button press"
-          icon: mdi:arrow-right
-          default: []
-          selector: { action: {} }
-        right_press_release:
-          name: Right Release
-          description: "Right button release"
-          icon: mdi:arrow-right-bold-outline
-          default: []
-          selector: { action: {} }
-        left_hold:
-          name: Left Hold
-          description: "Left button hold"
-          icon: mdi:arrow-left-bold-circle
-          default: []
-          selector: { action: {} }
-        left_hold_release:
-          name: Left Hold Release
-          description: "Left button hold release"
-          icon: mdi:arrow-left-bold-circle-outline
-          default: []
-          selector: { action: {} }
-        right_hold:
-          name: Right Hold
-          description: "Right button hold"
-          icon: mdi:arrow-right-bold-circle
-          default: []
-          selector: { action: {} }
-        right_hold_release:
-          name: Right Hold Release
-          description: "Right button hold release"
-          icon: mdi:arrow-right-bold-circle-outline
-          default: []
-          selector: { action: {} }
-        on_press:
-          name: On Press
-          description: "On button press"
-          icon: mdi:light-switch
-          default: []
-          selector: { action: {} }
-        on_hold:
-          name: On Hold
-          description: "On button hold"
-          icon: mdi:light-switch
-          default: []
-          selector: { action: {} }
-        on_press_release:
-          name: On Release
-          description: "On button release"
-          icon: mdi:light-switch
-          default: []
-          selector: { action: {} }
-        on_hold_release:
-          name: On Hold Release
-          description: "On button hold release"
-          icon: mdi:light-switch
-          default: []
-          selector: { action: {} }
-        off_press:
-          name: Off Press
-          description: "Off button press"
-          icon: mdi:light-switch-off
-          default: []
-          selector: { action: {} }
-        off_hold:
-          name: Off Hold
-          description: "Off button hold"
-          icon: mdi:light-switch-off
-          default: []
-          selector: { action: {} }
-        off_press_release:
-          name: Off Release
-          description: "Off button release"
-          icon: mdi:light-switch-off
-          default: []
-          selector: { action: {} }
-        off_hold_release:
-          name: Off Hold Release
-          description: "Off button hold release"
-          icon: mdi:light-switch-off
-          default: []
-          selector: { action: {} }
-        up_press:
-          name: Up Press
-          description: "Up button press"
-          icon: mdi:brightness-5
-          default: []
-          selector: { action: {} }
-        up_hold:
-          name: Up Hold
-          description: "Up button hold"
-          icon: mdi:brightness-5
-          default: []
-          selector: { action: {} }
-        up_press_release:
-          name: Up Release
-          description: "Up button release"
-          icon: mdi:brightness-5
-          default: []
-          selector: { action: {} }
-        up_hold_release:
-          name: Up Hold Release
-          description: "Up button hold release"
-          icon: mdi:brightness-5
-          default: []
-          selector: { action: {} }
-        down_press:
-          name: Down Press
-          description: "Down button press"
-          icon: mdi:brightness-7
-          default: []
-          selector: { action: {} }
-        down_hold:
-          name: Down Hold
-          description: "Down button hold"
-          icon: mdi:brightness-7
-          default: []
-          selector: { action: {} }
-        down_press_release:
-          name: Down Release
-          description: "Down button release"
-          icon: mdi:brightness-7
-          default: []
-          selector: { action: {} }
-        down_hold_release:
-          name: Down Hold Release
-          description: "Down button hold release"
-          icon: mdi:brightness-7
-          default: []
-          selector: { action: {} }
-        recall_0:
-          name: Recall 0
-          description: "Recall button 0"
-          icon: mdi:history
-          default: []
-          selector: { action: {} }
-        recall_1:
-          name: Recall 1
-          description: "Recall button 1"
-          icon: mdi:history
-          default: []
-          selector: { action: {} }
-            
-    # --- NEW: Hue Tap Dial ---
-    Hue_Tap_Dial:
-      name: Philips Hue Tap Dial (RDM002)
-      description: Specifiek voor model 8718699693985 / RDM002
-      icon: mdi:adjust
-      collapsed: true
-      input:
-        button_1_press: 
-          name: B1 Press
-          description: "Button 1 press"
-          icon: mdi:numeric-1-circle
-          default: []
-          selector: { action: {} }
-        button_1_release: 
-          name: B1 Release
-          description: "Button 1 release"
-          icon: mdi:numeric-1-circle-outline
-          default: []
-          selector: { action: {} }
-        button_1_hold: 
-          name: B1 Hold
-          description: "Button 1 hold"
-          icon: mdi:numeric-1-circle
-          default: []
-          selector: { action: {} }
-        button_2_press: 
-          name: B2 Press
-          description: "Button 2 press"
-          icon: mdi:numeric-2-circle
-          default: []
-          selector: { action: {} }
-        button_2_release: 
-          name: B2 Release
-          description: "Button 2 release"
-          icon: mdi:numeric-2-circle-outline
-          default: []
-          selector: { action: {} }
-        button_2_hold: 
-          name: B2 Hold
-          description: "Button 2 hold"
-          icon: mdi:numeric-2-circle
-          default: []
-          selector: { action: {} }
-        button_3_press: 
-          name: B3 Press
-          description: "Button 3 press"
-          icon: mdi:numeric-3-circle
-          default: []
-          selector: { action: {} }
-        button_3_release: 
-          name: B3 Release
-          description: "Button 3 release"
-          icon: mdi:numeric-3-circle-outline
-          default: []
-          selector: { action: {} }
-        button_3_hold: 
-          name: B3 Hold
-          description: "Button 3 hold"
-          icon: mdi:numeric-3-circle
-          default: []
-          selector: { action: {} }
-        button_4_press: 
-          name: B4 Press
-          description: "Button 4 press"
-          icon: mdi:numeric-4-circle
-          default: []
-          selector: { action: {} }
-        button_4_release: 
-          name: B4 Release
-          description: "Button 4 release"
-          icon: mdi:numeric-4-circle-outline
-          default: []
-          selector: { action: {} }
-        button_4_hold: 
-          name: B4 Hold
-          description: "Button 4 hold"
-          icon: mdi:numeric-4-circle
-          default: []
-          selector: { action: {} }
-        dial_rotate_left: 
-          name: Dial Left
-          description: "Dial rotate left"
-          icon: mdi:rotate-left
-          default: []
-          selector: { action: {} }
-        dial_rotate_right: 
-          name: Dial Right
-          description: "Dial rotate right"
-          icon: mdi:rotate-right
-          default: []
-          selector: { action: {} }
-        dial_rotate_left_fast: 
-          name: Dial Left Fast
-          description: "Dial rotate left fast"
-          icon: mdi:rotate-left-variant
-          default: []
-          selector: { action: {} }
-        dial_rotate_right_fast: 
-          name: Dial Right Fast
-          description: "Dial rotate right fast"
-          icon: mdi:rotate-right-variant
-          default: []
-          selector: { action: {} }
-
-    #Paulmann
-    Paulmann_switches:
-      name: Paulmann 501.34
-      description: Compatible with Paulmann 501.34
-      icon: mdi:lightbulb
-      collapsed: true
-      input:
-        on_1: 
-          name: On 1
-          description: "On button 1"
-          icon: mdi:numeric-1-box
-          default: []
-          selector: { action: {} }
-        off_1: 
-          name: Off 1
-          description: "Off button 1"
-          icon: mdi:numeric-1-box-outline
-          default: []
-          selector: { action: {} }
-        on_2: 
-          name: On 2
-          description: "On button 2"
-          icon: mdi:numeric-2-box
-          default: []
-          selector: { action: {} }
-        off_2: 
-          name: Off 2
-          description: "Off button 2"
-          icon: mdi:numeric-2-box-outline
-          default: []
-          selector: { action: {} }
-        brightness_move_up_1: 
-          name: Move Up 1
-          description: "Brightness Up 1"
-          icon: mdi:brightness-5
-          default: []
-          selector: { action: {} }
-        brightness_move_down_1: 
-          name: Move Down 1
-          description: "Brightness Down 1"
-          icon: mdi:brightness-7
-          default: []
-          selector: { action: {} }
-        brightness_stop_1: 
-          name: Stop 1
-          description: "Stop 1"
-          icon: mdi:stop
-          default: []
-          selector: { action: {} }
-        brightness_move_up_2: 
-          name: Move Up 2
-          description: "Brightness Up 2"
-          icon: mdi:brightness-5
-          default: []
-          selector: { action: {} }
-        brightness_move_down_2: 
-          name: Move Down 2
-          description: "Brightness Down 2"
-          icon: mdi:brightness-7
-          default: []
-          selector: { action: {} }
-        brightness_stop_2: 
-          name: Stop 2
-          description: "Stop 2"
-          icon: mdi:stop
-          default: []
-          selector: { action: {} }
+    # --- HUE TAP DIAL ---
+    button_1_press:
+      name: Hue B1 Press
+      default: []
+      selector: { action: {} }
+    button_1_release:
+      name: Hue B1 Release
+      default: []
+      selector: { action: {} }
+    button_1_hold:
+      name: Hue B1 Hold
+      default: []
+      selector: { action: {} }
+    button_2_press:
+      name: Hue B2 Press
+      default: []
+      selector: { action: {} }
+    button_2_release:
+      name: Hue B2 Release
+      default: []
+      selector: { action: {} }
+    button_2_hold:
+      name: Hue B2 Hold
+      default: []
+      selector: { action: {} }
+    button_3_press:
+      name: Hue B3 Press
+      default: []
+      selector: { action: {} }
+    button_3_release:
+      name: Hue B3 Release
+      default: []
+      selector: { action: {} }
+    button_3_hold:
+      name: Hue B3 Hold
+      default: []
+      selector: { action: {} }
+    button_4_press:
+      name: Hue B4 Press
+      default: []
+      selector: { action: {} }
+    button_4_release:
+      name: Hue B4 Release
+      default: []
+      selector: { action: {} }
+    button_4_hold:
+      name: Hue B4 Hold
+      default: []
+      selector: { action: {} }
+    dial_rotate_left:
+      name: Hue Dial Left
+      default: []
+      selector: { action: {} }
+    dial_rotate_right:
+      name: Hue Dial Right
+      default: []
+      selector: { action: {} }
+    dial_rotate_left_fast:
+      name: Hue Dial Left Fast
+      default: []
+      selector: { action: {} }
+    dial_rotate_right_fast:
+      name: Hue Dial Right Fast
+      default: []
+      selector: { action: {} }
 
 mode: parallel
 max_exceeded: silent
+
 trigger:
-- platform: state
-  entity_id: !input input_switch
+  - platform: state
+    entity_id: !input input_switch
+
 condition:
-  condition:
   - condition: template
-    value_template: '{{ trigger.from_state.state not in ["unknown", "unavailable"] }}'
+    value_template: "{{ trigger.from_state.state not in ['unknown', 'unavailable'] }}"
   - condition: template
-    value_template: '{{ trigger.to_state.attributes.event_type in (
-      ''on'',''off'',  
-      ''brightness_move_up'',''brightness_move_down'',''brightness_stop'',''toggle'',''brightness_up_click'',''brightness_down_click'',
-      ''brightness_up_hold'',''brightness_up_release'',''brightness_down_hold'',''brightness_down_release'',''toggle_hold'',''arrow_left_click'',
-      ''arrow_left_hold'',''arrow_left_release'',''arrow_right_click'',''arrow_right_hold'',''arrow_right_release'',
-      ''single'',''double'',''hold'',''long'',''many'',''triple'',''quadruple'',''release'',''shake'',
-      ''single_left'',''single_right'',''single_both'',''double_left'',''double_right'',''double_both'',
-      ''hold_left'',''hold_right'',''hold_both'',''triple_both'',
-      ''single_center'',''double_center'',''single_left_center'',''double_left_center'',''single_left_right'',''double_left_right'',''single_center_right'',''double_center_right'',
-      ''button_1_single'', ''button_1_double'', ''button_1_triple'', ''button_1_hold'', ''button_1_release'',
-      ''button_2_single'', ''button_2_double'', ''button_2_triple'', ''button_2_hold'', ''button_2_release'', 
-      ''button_3_single'',''button_3_double'', ''button_3_triple'',  ''button_3_hold'', ''button_3_release'', 
-      ''button_4_single'', ''button_4_double'',''button_4_triple'', ''button_4_hold'', ''button_4_release'', 
-      ''button_5_single'', ''button_5_double'', ''button_5_triple'', ''button_5_hold'', ''button_5_release'',
-      ''button_6_single'', ''button_6_double'', ''button_6_triple'', ''button_6_hold'',''button_6_release'', 
-      ''left_press'',''left_press_release'',''right_press'',''right_press_release'',''left_hold'',''left_hold_release'',''right_hold'',
-      ''right_hold_release'',''on_press'',''on_hold'',''on_press_release'',''on_hold_release'',''off_press'',''off_hold'',
-      ''off_press_release'',''off_hold_release'',''up_press'',''up_hold'',''up_press_release'',''up_hold_release'',''down_press'',''down_hold'',
-      ''down_press_release'',''down_hold_release'',''recall_0'',''recall_1'',
-      ''on_1'',''off_1'',''on_2'',''off_2'',''brightness_move_up_1'',''brightness_move_down_1'',''brightness_stop_1'',''brightness_move_up_2'',''brightness_move_down_2'',''brightness_stop_2'',
-      ''button_1_press'', ''button_1_press_release'', ''button_1_hold'', ''button_1_hold_release'',
-      ''button_2_press'', ''button_2_press_release'', ''button_2_hold'', ''button_2_hold_release'',
-      ''button_3_press'', ''button_3_press_release'', ''button_3_hold'', ''button_3_hold_release'',
-      ''button_4_press'', ''button_4_press_release'', ''button_4_hold'', ''button_4_hold_release'',
-      ''dial_rotate_left_step'', ''dial_rotate_right_step'', ''dial_rotate_left_slow'', ''dial_rotate_right_slow'', ''dial_rotate_left_fast'', ''dial_rotate_right_fast'',
-      ''1_single'',''1_double'',''1_hold'',''2_single'',''2_double'',''2_hold''
-      ) }}'
+    value_template: "{{ trigger.to_state.attributes.event_type is defined }}"
+
 action:
-- variables:
-    command: '{{ trigger.to_state.attributes.event_type }}'
-- choose:
-  - conditions:
-    - '{{ command == ''on'' }}'
-    sequence: !input aan
-  - conditions:
-    - '{{ command == ''off'' }}'
-    sequence: !input uit
-  - conditions:
-    - '{{ command == ''brightness_move_up'' }}'
-    sequence: !input brightness_move_up
-  - conditions:
-    - '{{ command == ''brightness_move_down'' }}'
-    sequence: !input brightness_move_down
-  - conditions:
-    - '{{ command == ''brightness_stop'' }}'
-    sequence: !input brightness_stop
-  - conditions:
-    - '{{ command == ''brightness_up_click'' }}'
-    sequence: !input brightness_up_click
-  - conditions:
-    - '{{ command == ''brightness_down_click'' }}'
-    sequence: !input brightness_down_click
-  - conditions:
-    - '{{ command == ''brightness_up_hold'' }}'
-    sequence: !input brightness_up_hold
-  - conditions:
-    - '{{ command == ''brightness_up_release'' }}'
-    sequence: !input brightness_up_release
-  - conditions:
-    - '{{ command == ''brightness_down_hold'' }}'
-    sequence: !input brightness_down_hold
-  - conditions:
-    - '{{ command == ''brightness_down_release'' }}'
-    sequence: !input brightness_down_release
-  - conditions:
-    - '{{ command == ''toggle'' }}'
-    sequence: !input toggle    
-  - conditions:
-    - '{{ command == ''toggle_hold'' }}'
-    sequence: !input toggle_hold
-  - conditions:
-    - '{{ command == ''arrow_left_click'' }}'
-    sequence: !input arrow_left_click
-  - conditions:
-    - '{{ command == ''arrow_left_hold'' }}'
-    sequence: !input arrow_left_hold
-  - conditions:
-    - '{{ command == ''arrow_left_release'' }}'
-    sequence: !input arrow_left_release
-  - conditions:
-    - '{{ command == ''arrow_right_click'' }}'
-    sequence: !input arrow_right_click
-  - conditions:
-    - '{{ command == ''arrow_right_hold'' }}'
-    sequence: !input arrow_right_hold
-  - conditions:
-    - '{{ command == ''arrow_right_release'' }}'
-    sequence: !input arrow_right_release    
-  - conditions:
-    - '{{ command == ''single'' }}'
-    sequence: !input single
-  - conditions:
-    - '{{ command == ''double'' }}'
-    sequence: !input double
-  - conditions:
-    - '{{ command == ''hold'' }}'
-    sequence: !input hold
-  - conditions:
-    - '{{ command == ''long'' }}'
-    sequence: !input long
-  - conditions:
-    - '{{ command == ''triple'' }}'
-    sequence: !input triple
-  - conditions:
-    - '{{ command == ''many'' }}'
-    sequence: !input many
-  - conditions:
-    - '{{ command == ''quadruple'' }}'
-    sequence: !input quadruple
-  - conditions:
-    - '{{ command == ''release'' }}'
-    sequence: !input release
-  - conditions:
-    - '{{ command == ''shake'' }}'
-    sequence: !input shake
-  - conditions:
-    - '{{ command == ''single_left'' }}'
-    sequence: 
-      - !input single_left
-      - !input aqara_3_left_single
-  - conditions:
-    - '{{ command == ''single_right'' }}'
-    sequence: 
-      - !input single_right
-      - !input aqara_3_right_single
-  - conditions:
-    - '{{ command == ''single_both'' }}'
-    sequence: !input single_both
-  - conditions:
-    - '{{ command == ''double_left'' }}'
-    sequence: 
-      - !input double_left
-      - !input aqara_3_left_double
-  - conditions:
-    - '{{ command == ''double_right'' }}'
-    sequence: 
-      - !input double_right
-      - !input aqara_3_right_double
-  - conditions:
-    - '{{ command == ''double_both'' }}'
-    sequence: !input double_both
-  - conditions:
-    - '{{ command == ''hold_left'' }}'
-    sequence: !input hold_left
-  - conditions:
-    - '{{ command == ''hold_right'' }}'
-    sequence: !input hold_right
-  - conditions:
-    - '{{ command == ''hold_both'' }}'
-    sequence: !input hold_both
-  - conditions:
-    - '{{ command == ''triple_both'' }}'
-    sequence: !input triple_both
-  - conditions:
-    - '{{ command == ''button_1_single'' }}'
-    sequence: !input button_1_single
-  - conditions:
-    - '{{ command == ''button_2_single'' }}'
-    sequence: !input button_2_single
-  - conditions:
-    - '{{ command == ''button_3_single'' }}'
-    sequence: !input button_3_single
-  - conditions:
-    - '{{ command == ''button_4_single'' }}'
-    sequence: !input button_4_single
-  - conditions:
-    - '{{ command == ''button_5_single'' }}'
-    sequence: !input button_5_single
-  - conditions:
-    - '{{ command == ''button_6_single'' }}'
-    sequence: !input button_6_single
-  - conditions:
-    - '{{ command == ''button_1_double'' }}'
-    sequence: !input button_1_double
-  - conditions:
-    - '{{ command == ''button_2_double'' }}'
-    sequence: !input button_2_double
-  - conditions:
-    - '{{ command == ''button_3_double'' }}'
-    sequence: !input button_3_double
-  - conditions:
-    - '{{ command == ''button_4_double'' }}'
-    sequence: !input button_4_double
-  - conditions:
-    - '{{ command == ''button_5_double'' }}'
-    sequence: !input button_5_double
-  - conditions:
-    - '{{ command == ''button_6_double'' }}'
-    sequence: !input button_6_double
-  - conditions:
-    - '{{ command == ''button_1_triple'' }}'
-    sequence: !input button_1_triple
-  - conditions:
-    - '{{ command == ''button_2_triple'' }}'
-    sequence: !input button_2_triple
-  - conditions:
-    - '{{ command == ''button_3_triple'' }}'
-    sequence: !input button_3_triple
-  - conditions:
-    - '{{ command == ''button_4_triple'' }}'
-    sequence: !input button_4_triple
-  - conditions:
-    - '{{ command == ''button_5_triple'' }}'
-    sequence: !input button_5_triple
-  - conditions:
-    - '{{ command == ''button_6_triple'' }}'
-    sequence: !input button_6_triple
-  - conditions:
-    - '{{ command == ''button_1_hold'' }}'
-    sequence: !input button_1_hold
-  - conditions:
-    - '{{ command == ''button_2_hold'' }}'
-    sequence: !input button_2_hold
-  - conditions:
-    - '{{ command == ''button_3_hold'' }}'
-    sequence: !input button_3_hold
-  - conditions:
-    - '{{ command == ''button_4_hold'' }}'
-    sequence: !input button_4_hold
-  - conditions:
-    - '{{ command == ''button_5_hold'' }}'
-    sequence: !input button_5_hold
-  - conditions:
-    - '{{ command == ''button_6_hold'' }}'
-    sequence: !input button_6_hold
-  - conditions:
-    - '{{ command == ''button_1_release'' }}'
-    sequence: !input button_1_release
-  - conditions:
-    - '{{ command == ''button_2_release'' }}'
-    sequence: !input button_2_release
-  - conditions:
-    - '{{ command == ''button_3_release'' }}'
-    sequence: !input button_3_release
-  - conditions:
-    - '{{ command == ''button_4_release'' }}'
-    sequence: !input button_4_release
-  - conditions:
-    - '{{ command == ''button_5_release'' }}'
-    sequence: !input button_5_release
-  - conditions:
-    - '{{ command == ''button_6_release'' }}'
-    sequence: !input button_6_release
-#philips
-  - conditions:
-    - '{{ command == ''left_press'' }}'
-    sequence: !input left_press
-  - conditions:
-    - '{{ command == ''left_press_release'' }}'
-    sequence: !input left_press_release
-  - conditions:
-    - '{{ command == ''right_press'' }}'
-    sequence: !input right_press
-  - conditions:
-    - '{{ command == ''right_press_release'' }}'
-    sequence: !input right_press_release
-  - conditions:
-    - '{{ command == ''left_hold'' }}'
-    sequence: !input left_hold
-  - conditions:
-    - '{{ command == ''left_hold_release'' }}'
-    sequence: !input left_hold_release
-  - conditions:
-    - '{{ command == ''right_hold'' }}'
-    sequence: !input right_hold
-  - conditions:
-    - '{{ command == ''right_hold_release'' }}'
-    sequence: !input right_hold_release
-  - conditions:
-    - '{{ command == ''on_press'' }}'
-    sequence: !input on_press
-  - conditions:
-    - '{{ command == ''on_hold'' }}'
-    sequence: !input on_hold
-  - conditions:
-    - '{{ command == ''on_press_release'' }}'
-    sequence: !input on_press_release
-  - conditions:
-    - '{{ command == ''on_hold_release'' }}'
-    sequence: !input on_hold_release
-  - conditions:
-    - '{{ command == ''off_press'' }}'
-    sequence: !input off_press
-  - conditions:
-    - '{{ command == ''off_hold'' }}'
-    sequence: !input off_hold
-  - conditions:
-    - '{{ command == ''off_press_release'' }}'
-    sequence: !input off_press_release
-  - conditions:
-    - '{{ command == ''off_hold_release'' }}'
-    sequence: !input off_hold_release
-  - conditions:
-    - '{{ command == ''up_press'' }}'
-    sequence: !input up_press
-  - conditions:
-    - '{{ command == ''up_hold'' }}'
-    sequence: !input up_hold
-  - conditions:
-    - '{{ command == ''up_press_release'' }}'
-    sequence: !input up_press_release
-  - conditions:
-    - '{{ command == ''up_hold_release'' }}'
-    sequence: !input up_hold_release
-  - conditions:
-    - '{{ command == ''down_press'' }}'
-    sequence: !input down_press
-  - conditions:
-    - '{{ command == ''down_hold'' }}'
-    sequence: !input down_hold
-  - conditions:
-    - '{{ command == ''down_press_release'' }}'
-    sequence: !input down_press_release
-  - conditions:
-    - '{{ command == ''down_hold_release'' }}'
-    sequence: !input down_hold_release
-  - conditions:
-    - '{{ command == ''recall_0'' }}'
-    sequence: !input recall_0
-  - conditions:
-    - '{{ command == ''recall_1'' }}'
-    sequence: !input recall_1
-  - conditions:
-    - '{{ command == ''on_1'' }}'
-    sequence: !input on_1
-  - conditions:
-    - '{{ command == ''off_1'' }}'
-    sequence: !input off_1
-  - conditions:
-    - '{{ command == ''on_2'' }}'
-    sequence: !input on_2
-  - conditions:
-    - '{{ command == ''off_2'' }}'
-    sequence: !input off_2
-  - conditions:
-    - '{{ command == ''brightness_move_up_1'' }}'
-    sequence: !input brightness_move_up_1
-  - conditions:
-    - '{{ command == ''brightness_move_down_1'' }}'
-    sequence: !input brightness_move_down_1
-  - conditions:
-    - '{{ command == ''brightness_stop_1'' }}'
-    sequence: !input brightness_stop_1
-  - conditions:
-    - '{{ command == ''brightness_move_up_2'' }}'
-    sequence: !input brightness_move_up_2
-  - conditions:
-    - '{{ command == ''brightness_move_down_2'' }}'
-    sequence: !input brightness_move_down_2
-  - conditions:
-    - '{{ command == ''brightness_stop_2'' }}'
-    sequence: !input brightness_stop_2
+  - variables:
+      command: "{{ trigger.to_state.attributes.event_type }}"
+  - choose:
+      # Basic IKEA / Standard
+      - conditions: "{{ command == 'on' }}"
+        sequence: !input aan
+      - conditions: "{{ command == 'off' }}"
+        sequence: !input uit
+      - conditions: "{{ command == 'toggle' }}"
+        sequence: !input toggle
+      
+      # Single/Multi click
+      - conditions: "{{ command == 'single' }}"
+        sequence: !input single
+      - conditions: "{{ command == 'double' }}"
+        sequence: !input double
+      - conditions: "{{ command == 'hold' }}"
+        sequence: !input hold
+      - conditions: "{{ command == 'release' }}"
+        sequence: !input release
 
-  # HUE TAP DIAL ACTIONS
-  - conditions:
-    - '{{ command == ''button_1_press'' }}'
-    sequence: !input button_1_press
-  - conditions:
-    - '{{ command == ''button_1_press_release'' }}'
-    sequence: !input button_1_release
-  - conditions:
-    - '{{ command == ''button_1_hold'' }}'
-    sequence: !input button_1_hold
-  - conditions:
-    - '{{ command == ''button_1_hold_release'' }}'
-    sequence: !input button_1_release
-  - conditions:
-    - '{{ command == ''button_2_press'' }}'
-    sequence: !input button_2_press
-  - conditions:
-    - '{{ command == ''button_2_press_release'' }}'
-    sequence: !input button_2_release
-  - conditions:
-    - '{{ command == ''button_2_hold'' }}'
-    sequence: !input button_2_hold
-  - conditions:
-    - '{{ command == ''button_2_hold_release'' }}'
-    sequence: !input button_2_release
-  - conditions:
-    - '{{ command == ''button_3_press'' }}'
-    sequence: !input button_3_press
-  - conditions:
-    - '{{ command == ''button_3_press_release'' }}'
-    sequence: !input button_3_release
-  - conditions:
-    - '{{ command == ''button_3_hold'' }}'
-    sequence: !input button_3_hold
-  - conditions:
-    - '{{ command == ''button_3_hold_release'' }}'
-    sequence: !input button_3_release
-  - conditions:
-    - '{{ command == ''button_4_press'' }}'
-    sequence: !input button_4_press
-  - conditions:
-    - '{{ command == ''button_4_press_release'' }}'
-    sequence: !input button_4_release
-  - conditions:
-    - '{{ command == ''button_4_hold'' }}'
-    sequence: !input button_4_hold
-  - conditions:
-    - '{{ command == ''button_4_hold_release'' }}'
-    sequence: !input button_4_release
-  - conditions:
-    - '{{ command in (''dial_rotate_left_step'', ''dial_rotate_left_slow'') }}'
-    sequence: !input dial_rotate_left
-  - conditions:
-    - '{{ command in (''dial_rotate_right_step'', ''dial_rotate_right_slow'') }}'
-    sequence: !input dial_rotate_right
-  - conditions:
-    - '{{ command == ''dial_rotate_left_fast'' }}'
-    sequence: !input dial_rotate_left_fast
-  - conditions:
-    - '{{ command == ''dial_rotate_right_fast'' }}'
-    sequence: !input dial_rotate_right_fast
+      # Aqara 2-Gang logic
+      - conditions: "{{ command == 'single_left' }}"
+        sequence:
+          - choose:
+            - conditions: "{{ true }}" # Voer beide uit indien gedefinieerd
+              sequence: 
+                - !input single_left
+                - !input aqara_3_left_single
+      - conditions: "{{ command == 'single_right' }}"
+        sequence:
+          - choose:
+            - conditions: "{{ true }}"
+              sequence:
+                - !input single_right
+                - !input aqara_3_right_single
 
-  # AQARA 3-GANG ACTIONS (E1)
-  - conditions:
-    - '{{ command == ''single_center'' }}'
-    sequence: !input aqara_3_center_single
-  - conditions:
-    - '{{ command == ''double_center'' }}'
-    sequence: !input aqara_3_center_double
-  - conditions: # Reuse generic Left/Right for the 3-gang to keep it clean, or use dedicated if preferred
-    - '{{ command in (''single_left_center'') }}'
-    sequence: !input aqara_3_left_center_single
-  - conditions:
-    - '{{ command in (''single_left_right'') }}'
-    sequence: !input aqara_3_left_right_single
-  - conditions:
-    - '{{ command in (''single_center_right'') }}'
-    sequence: !input aqara_3_center_right_single
+      # Aqara 3-Gang (Center & Combo)
+      - conditions: "{{ command == 'single_center' }}"
+        sequence: !input aqara_3_center_single
+      - conditions: "{{ command == 'double_center' }}"
+        sequence: !input aqara_3_center_double
+      - conditions: "{{ command == 'single_left_center' }}"
+        sequence: !input aqara_3_left_center_single
+      - conditions: "{{ command == 'single_left_right' }}"
+        sequence: !input aqara_3_left_right_single
+      - conditions: "{{ command == 'single_center_right' }}"
+        sequence: !input aqara_3_center_right_single
 
-  # TUYA TS0042 ACTIONS
-  - conditions:
-    - '{{ command == ''1_single'' }}'
-    sequence: !input tuya_1_single
-  - conditions:
-    - '{{ command == ''1_double'' }}'
-    sequence: !input tuya_1_double
-  - conditions:
-    - '{{ command == ''1_hold'' }}'
-    sequence: !input tuya_1_hold
-  - conditions:
-    - '{{ command == ''2_single'' }}'
-    sequence: !input tuya_2_single
-  - conditions:
-    - '{{ command == ''2_double'' }}'
-    sequence: !input tuya_2_double
-  - conditions:
-    - '{{ command == ''2_hold'' }}'
-    sequence: !input tuya_2_hold
+      # Tuya TS0042
+      - conditions: "{{ command == '1_single' }}"
+        sequence: !input tuya_1_single
+      - conditions: "{{ command == '1_double' }}"
+        sequence: !input tuya_1_double
+      - conditions: "{{ command == '1_hold' }}"
+        sequence: !input tuya_1_hold
+      - conditions: "{{ command == '2_single' }}"
+        sequence: !input tuya_2_single
+      - conditions: "{{ command == '2_double' }}"
+        sequence: !input tuya_2_double
+      - conditions: "{{ command == '2_hold' }}"
+        sequence: !input tuya_2_hold
+
+      # Hue Tap Dial
+      - conditions: "{{ command == 'button_1_press' }}"
+        sequence: !input button_1_press
+      - conditions: "{{ command == 'button_1_press_release' or command == 'button_1_hold_release' }}"
+        sequence: !input button_1_release
+      - conditions: "{{ command == 'button_1_hold' }}"
+        sequence: !input button_1_hold
+      - conditions: "{{ command in ['dial_rotate_left_step', 'dial_rotate_left_slow'] }}"
+        sequence: !input dial_rotate_left
+      - conditions: "{{ command in ['dial_rotate_right_step', 'dial_rotate_right_slow'] }}"
+        sequence: !input dial_rotate_right
